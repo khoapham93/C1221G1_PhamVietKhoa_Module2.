@@ -44,6 +44,7 @@ public class DocSoThanhChu {
                     soThanhChu = "nine hundred ";
                     break;
             }
+
             if (hangTram != 0 && (hangChuc != 0 || hangDonVi !=0)) {
                 soThanhChu += "and ";
             }
