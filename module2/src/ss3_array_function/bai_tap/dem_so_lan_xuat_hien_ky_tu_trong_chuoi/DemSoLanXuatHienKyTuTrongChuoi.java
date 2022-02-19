@@ -10,10 +10,10 @@ public class DemSoLanXuatHienKyTuTrongChuoi {
         char c = scanner.next().charAt(0);
         int count = 0;
         for (int i = 0; i < string.length(); i++) {
-            if (c == string.charAt(i)){
-                count +=1;
+            if (c == string.charAt(i)) {
+                count += 1;
             }
         }
-        System.out.println("frequency of appearance of "+ c+" in string is "+count);
+        System.out.println("frequency of appearance of " + c + " in string is " + count);
     }
 }

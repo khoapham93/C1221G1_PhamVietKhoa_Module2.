@@ -24,7 +24,7 @@ public class ChuongTrinhChuyenDoiNhietDo {
                     System.out.println("Fahrenheit to Celsius: " + fahrenheitToCelsius(fahrenheit));
                     break;
                 }
-                case 2:{
+                case 2: {
                     System.out.println("Enter Celsius: ");
                     celsius = input.nextDouble();
                     System.out.println("Celsius to Fahrenheit: " + celsiusToFahrenheit(celsius));
