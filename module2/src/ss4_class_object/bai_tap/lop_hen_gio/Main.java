@@ -30,6 +30,6 @@ public class Main {
         stopWatch.stop();
         System.out.println("End calculate at " + stopWatch.getEndTime());
         System.out.println("Sum of elements of array: " + sum);
-        System.out.println("Time Taken by calculate sum of 2 demesion array: " + stopWatch.getElapsedTime());
+        System.out.println("Time Taken by calculate sum of 2 dimension array: " + stopWatch.getElapsedTime());
     }
 }
