@@ -1,8 +1,7 @@
 package ss4_class_object.bai_tap.lop_hen_gio;
 
-public class Main {
+public class MainApplication {
     public static void main(String[] args) {
-
         double[][] twoDimensionArrs = {
                 {1, 2, 3, 4, 5, 7},
                 {2, 3, 5, 6, 7, 9},

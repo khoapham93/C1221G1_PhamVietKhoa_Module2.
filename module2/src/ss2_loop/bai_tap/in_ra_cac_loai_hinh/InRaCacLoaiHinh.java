@@ -16,12 +16,12 @@ public class InRaCacLoaiHinh {
             choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Enter Row");
+                    System.out.println("Enter row");
                     int row = input.nextInt();
                     System.out.println("Enter column");
                     int col = input.nextInt();
-                    for (int i = 0; i <row ; i++) {
-                        for (int j = 0; j <col ; j++) {
+                    for (int i = 0; i < row; i++) {
+                        for (int j = 0; j < col; j++) {
                             System.out.print("* ");
                         }
                         System.out.println();
@@ -31,30 +31,30 @@ public class InRaCacLoaiHinh {
                     System.out.println("Enter height");
                     int height = input.nextInt();
                     //bottom left
-                    System.out.println("bottom left");
+                    System.out.println("Bottom left");
                     for (int i = 1; i <= height; i++) {
-                        for (int j = 1; j <=i ; j++) {
+                        for (int j = 1; j <= i; j++) {
                             System.out.print("* ");
                         }
                         System.out.println();
                     }
                     System.out.println();
                     //top left
-                    System.out.println("top left");
+                    System.out.println("Top left");
                     for (int i = height; i >= 1; i--) {
-                        for (int j = 1; j <=i ; j++) {
+                        for (int j = 1; j <= i; j++) {
                             System.out.print("* ");
                         }
                         System.out.println();
                     }
                     System.out.println();
                     //top Right
-                    System.out.println("top Right");
+                    System.out.println("Top Right");
                     for (int i = height; i >= 1; i--) {
-                        for (int j = height; j >=1 ; j--) {
-                            if (j<=i){
+                        for (int j = height; j >= 1; j--) {
+                            if (j <= i) {
                                 System.out.print("* ");
-                            }else {
+                            } else {
                                 System.out.print("  ");
                             }
                         }
@@ -62,12 +62,12 @@ public class InRaCacLoaiHinh {
                     }
                     System.out.println();
                     //bottom Right
-                    System.out.println("bottom Right");
+                    System.out.println("Bottom Right");
                     for (int i = height; i >= 1; i--) {
-                        for (int j = 1; j <= height ; j++) {
-                            if (j>=i){
+                        for (int j = 1; j <= height; j++) {
+                            if (j >= i) {
                                 System.out.print("* ");
-                            }else {
+                            } else {
                                 System.out.print("  ");
                             }
                         }
@@ -78,10 +78,10 @@ public class InRaCacLoaiHinh {
                     System.out.println("Enter height");
                     int heightIsoscelesTri = input.nextInt();
                     for (int i = 1; i <= heightIsoscelesTri; i++) {
-                        for (int j = heightIsoscelesTri; j >i; j--) {
+                        for (int j = heightIsoscelesTri; j > i; j--) {
                             System.out.print("  ");
                         }
-                        for (int k = 1; k <=2*i-1 ; k++) {
+                        for (int k = 1; k <= 2 * i - 1; k++) {
                             System.out.print("* ");
                         }
                         System.out.println();

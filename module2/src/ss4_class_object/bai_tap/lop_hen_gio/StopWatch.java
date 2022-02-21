@@ -5,6 +5,10 @@ public class StopWatch {
     private long startTime;
     private long endTime;
 
+    public StopWatch() {
+        this.startTime = System.currentTimeMillis();
+    }
+
     public long getEndTime() {
         return endTime;
     }
