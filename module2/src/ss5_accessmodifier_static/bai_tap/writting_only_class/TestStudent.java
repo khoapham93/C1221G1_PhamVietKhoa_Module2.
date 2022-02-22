@@ -5,6 +5,5 @@ public class TestStudent {
         Student student = new Student();
         student.setName("Khoa");
         student.setClasses("C12");
-        System.out.println(student.getClasses());
     }
 }

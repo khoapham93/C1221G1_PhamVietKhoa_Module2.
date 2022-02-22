@@ -8,11 +8,7 @@ public class Student {
 
     }
 
-    public String getClasses() {
-        return classes;
-    }
-
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
