@@ -1,4 +1,4 @@
-package ss4_class_object.bai_tap.lop_quat;
+package ss4_class_object.bai_tap.fan;
 
 public class MainApplication {
     public static void main(String[] args) {

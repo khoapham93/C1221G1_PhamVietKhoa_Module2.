@@ -1,4 +1,4 @@
-package ss4_class_object.thuc_hanh.lop_hinh_chu_nhat;
+package ss4_class_object.thuc_hanh.rectangle;
 
 public class Rectangle {
     double width, height;

@@ -1,4 +1,4 @@
-package ss4_class_object.bai_tap.lop_phuong_trinh_bac_hai;
+package ss4_class_object.bai_tap.quadratic_equation;
 
 public class QuadraticEquation {
     private double a, b, c;

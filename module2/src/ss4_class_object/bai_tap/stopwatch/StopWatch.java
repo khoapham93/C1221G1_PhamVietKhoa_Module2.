@@ -1,4 +1,4 @@
-package ss4_class_object.bai_tap.lop_hen_gio;
+package ss4_class_object.bai_tap.stopwatch;
 
 public class StopWatch {
 
