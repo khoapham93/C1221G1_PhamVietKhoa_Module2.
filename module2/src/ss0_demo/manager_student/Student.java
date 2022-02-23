@@ -1,9 +1,6 @@
 package ss0_demo.manager_student;
 
-public class Student {
-    private int id;
-    private String name;
-    private String birthday;
+public class Student extends Person {
     private String className;
     static String school = "CodeGym";
 
@@ -11,35 +8,10 @@ public class Student {
     }
 
     public Student(int id, String name, String birthday, String className) {
-        this.id = id;
-        this.name = name;
-        this.birthday = birthday;
+        super(id, name, birthday);
         this.className = className;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
     public String getClassName() {
         return className;
@@ -47,6 +19,11 @@ public class Student {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    //Phương thức riêng của student
+    public void study(String subject) {
+        System.out.println(this.name + " đang học môn " + subject);
     }
 
     @Override
