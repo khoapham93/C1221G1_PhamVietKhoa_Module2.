@@ -1,9 +1,7 @@
 package ss7_abstract_class_interface.thuc_hanh.interface_comparable;
 
-import ss6_inheritance.thuc_hanh.shape.Circle;
-
 public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
-    
+
     public ComparableCircle() {
     }
 

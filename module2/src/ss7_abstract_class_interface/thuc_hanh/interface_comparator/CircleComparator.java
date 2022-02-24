@@ -1,7 +1,5 @@
 package ss7_abstract_class_interface.thuc_hanh.interface_comparator;
 
-import ss6_inheritance.thuc_hanh.shape.Circle;
-
 import java.util.Comparator;
 
 public class CircleComparator implements Comparator<Circle> {
