@@ -1,4 +1,4 @@
-package ss8_clean_code_refactoring.method_extraction;
+package ss8_clean_code_refactoring.thuc_hanh.method_extraction;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

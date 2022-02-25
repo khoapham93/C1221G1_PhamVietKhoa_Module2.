@@ -1,4 +1,4 @@
-package ss8_clean_code_refactoring.variable_extraction;
+package ss8_clean_code_refactoring.thuc_hanh.variable_extraction;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package ss8_clean_code_refactoring.method_extraction;
+package ss8_clean_code_refactoring.thuc_hanh.method_extraction;
 
 public class Cylinder {
     public static double getVolume(int radius, int height) {
