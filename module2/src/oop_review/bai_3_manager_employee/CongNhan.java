@@ -1,4 +1,4 @@
-package oop_review.bai_1_quan_ly_nhan_vien;
+package oop_review.bai_3_manager_employee;
 
 public class CongNhan extends CanBo {
     private String skillLevel;
