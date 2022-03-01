@@ -10,12 +10,26 @@ public class TestMyList {
         MyList<Student> studentMyList = new MyList<>();
         studentMyList.add(khoa);
         studentMyList.add(trung);
-        studentMyList.add(giang);
+        studentMyList.add(0, giang);
         studentMyList.add(luat);
 
+        System.out.println("Name of Student in student list");
         for (int i = 0; i < studentMyList.size(); i++) {
-            System.out.println(studentMyList.get(5).getName());
+            System.out.println(studentMyList.get(i).getName());
+        }
+        Student studentRemove = studentMyList.remove(1);
+        System.out.println("Remove and return student at index 1: " + studentRemove);
+        System.out.println("Student list after remove");
+        for (int i = 0; i < studentMyList.size(); i++) {
+            System.out.println(studentMyList.get(i).getName());
         }
 
+        System.out.println("index of Trung in list " + studentMyList.indexOf(trung));
+
+        System.out.println("Is student list contain Khoa: " + studentMyList.contains(khoa));
+
+        System.out.println("Clear all student in list:");
+        studentMyList.clear();
+        System.out.println("Size of student list after clear " + studentMyList.size());
     }
 }
