@@ -26,6 +26,7 @@ public class VehicleController {
                     "4. Exit");
             System.out.print("Enter your choice: ");
             choice = Integer.parseInt(scanner.nextLine());
+            System.out.println();
             switch (choice) {
                 case 1:
                     addNewVehicle();
@@ -52,7 +53,9 @@ public class VehicleController {
                         "1. Truck\n" +
                         "2. Car\n" +
                         "3. Motorcycle\n");
+        System.out.print("Enter your choice: ");
         choice = Integer.parseInt(scanner.nextLine());
+        System.out.println();
         switch (choice) {
             case 1:
                 truck.add();
@@ -66,7 +69,6 @@ public class VehicleController {
             default:
                 System.out.println("No choice selected");
         }
-
     }
 
     public static void displayVehicle() {
@@ -76,7 +78,9 @@ public class VehicleController {
                         "1. Truck\n" +
                         "2. Car\n" +
                         "3. Motorcycle\n");
+        System.out.print("Enter your choice: ");
         choice = Integer.parseInt(scanner.nextLine());
+        System.out.println();
         switch (choice) {
             case 1:
                 truck.display();
@@ -103,6 +107,7 @@ public class VehicleController {
         } else {
             System.out.println("The vehicle was deleted!");
         }
+        System.out.println();
     }
 }
 

@@ -19,17 +19,16 @@ public class ManufacturerImpl {
 
     public static void displayManufacturerName() {
         for (int i = 0; i < manufacturers.size(); i++) {
-            System.out.print(manufacturers.get(i).getManufacturerId() + ": ");
+            System.out.print((i) + ". ");
             System.out.println(manufacturers.get(i).getManufacturerName());
         }
     }
 
-    public static Manufacturer getManufacturer(String manufacturerID) {
-        for (int i = 0; i < manufacturers.size(); i++) {
-            if (manufacturers.get(i).getManufacturerId().equals(manufacturerID)) {
-                return manufacturers.get(i);
-            }
+    public static Manufacturer getManufacturerByIndex(int index) {
+        if (index < 0 || index >= manufacturers.size()) {
+            return manufacturers.get(0);//default
+        } else {
+            return manufacturers.get(index);
         }
-        return manufacturers.get(0);//default
     }
 }

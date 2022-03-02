@@ -19,6 +19,7 @@ public class TruckImpl extends VehicleImpl implements IService {
         maximumLoad = Integer.parseInt(scanner.nextLine());
         Truck truck = new Truck(super.licensePlate, super.manufacturer, super.productionYear, super.owner, this.maximumLoad);
         trucks.add(truck);
+        System.out.println("Vehicle's added!");
     }
 
     @Override

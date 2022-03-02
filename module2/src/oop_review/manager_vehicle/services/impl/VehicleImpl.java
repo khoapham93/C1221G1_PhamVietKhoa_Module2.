@@ -18,9 +18,9 @@ public class VehicleImpl {
         licensePlate = scanner.nextLine();
         System.out.println("Manufacturer: ");
         ManufacturerImpl.displayManufacturerName();
-        System.out.print("Manufacturer code: ");
-        String manufacturerID = scanner.nextLine();
-        manufacturer = ManufacturerImpl.getManufacturer(manufacturerID);
+        System.out.print("Manufacturer index (invalid value will return Yamaha): ");
+        int manufacturerIndex = Integer.parseInt(scanner.nextLine());
+        manufacturer = ManufacturerImpl.getManufacturerByIndex(manufacturerIndex);
         System.out.print("Year of production: ");
         productionYear = Integer.parseInt(scanner.nextLine());
         System.out.print("Owner: ");

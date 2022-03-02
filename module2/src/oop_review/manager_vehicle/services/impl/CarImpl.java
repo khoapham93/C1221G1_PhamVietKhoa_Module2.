@@ -21,6 +21,7 @@ public class CarImpl extends VehicleImpl implements IService {
         seat = Integer.parseInt(scanner.nextLine());
         Car car = new Car(super.licensePlate, super.manufacturer, super.productionYear, super.owner, this.seat, this.carType);
         cars.add(car);
+        System.out.println("Vehicle's added!");
     }
 
     @Override

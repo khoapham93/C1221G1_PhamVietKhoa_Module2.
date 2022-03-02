@@ -18,6 +18,7 @@ public class MotorcycleImpl extends VehicleImpl implements IService {
         cylinderCapacity = Integer.parseInt(scanner.nextLine());
         Motorcycle motorcycle = new Motorcycle(super.licensePlate, super.manufacturer, super.productionYear, super.owner, this.cylinderCapacity);
         motorcycles.add(motorcycle);
+        System.out.println("Vehicle's added!");
     }
 
     @Override
