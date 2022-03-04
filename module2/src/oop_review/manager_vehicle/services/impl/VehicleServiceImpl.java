@@ -6,7 +6,7 @@ import oop_review.manager_vehicle.models.Vehicle;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class VehicleImpl {
+public class VehicleServiceImpl {
     protected Scanner scanner = new Scanner(System.in);
     protected String licensePlate;
     protected Manufacturer manufacturer;
@@ -17,10 +17,10 @@ public class VehicleImpl {
         System.out.print("License plate: ");
         licensePlate = scanner.nextLine();
         System.out.println("Manufacturer: ");
-        ManufacturerImpl.displayManufacturerName();
+        ManufacturerServiceImpl.displayManufacturerName();
         System.out.print("Manufacturer index (invalid value will return Yamaha): ");
         int manufacturerIndex = Integer.parseInt(scanner.nextLine());
-        manufacturer = ManufacturerImpl.getManufacturerByIndex(manufacturerIndex);
+        manufacturer = ManufacturerServiceImpl.getManufacturerByIndex(manufacturerIndex);
         System.out.print("Year of production: ");
         productionYear = Integer.parseInt(scanner.nextLine());
         System.out.print("Owner: ");

@@ -6,7 +6,7 @@ import oop_review.manager_vehicle.services.IService;
 
 import java.util.ArrayList;
 
-public class CarImpl extends VehicleImpl implements IService {
+public class CarServiceImpl extends VehicleServiceImpl implements IService {
     private static ArrayList<Vehicle> cars = new ArrayList<>();
     private String carType;
     private int seat;

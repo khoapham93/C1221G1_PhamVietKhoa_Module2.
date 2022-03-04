@@ -4,7 +4,7 @@ import oop_review.manager_vehicle.models.Manufacturer;
 
 import java.util.ArrayList;
 
-public class ManufacturerImpl {
+public class ManufacturerServiceImpl {
     private static ArrayList<Manufacturer> manufacturers = new ArrayList<>();
 
     static {

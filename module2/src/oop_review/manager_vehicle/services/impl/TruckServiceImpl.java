@@ -6,7 +6,7 @@ import oop_review.manager_vehicle.services.IService;
 
 import java.util.ArrayList;
 
-public class TruckImpl extends VehicleImpl implements IService {
+public class TruckServiceImpl extends VehicleServiceImpl implements IService {
 
     private static ArrayList<Vehicle> trucks = new ArrayList<>();
     private int maximumLoad;

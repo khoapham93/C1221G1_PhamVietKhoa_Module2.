@@ -1,6 +1,12 @@
 package oop_review.bai_3_manager_employee;
 
-public class QuanLyCanBo {
-    private static CanBo[] canBos = new CanBo[100];
+import java.util.ArrayList;
+import java.util.List;
 
+public class QuanLyCanBo {
+    public static List<CanBo> canBos = new ArrayList<>();
+
+    public void add() {
+        
+    }
 }

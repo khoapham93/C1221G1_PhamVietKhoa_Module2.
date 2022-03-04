@@ -1,16 +1,16 @@
 package oop_review.manager_vehicle.controllers;
 
 import oop_review.manager_vehicle.services.IService;
-import oop_review.manager_vehicle.services.impl.CarImpl;
-import oop_review.manager_vehicle.services.impl.MotorcycleImpl;
-import oop_review.manager_vehicle.services.impl.TruckImpl;
+import oop_review.manager_vehicle.services.impl.CarServiceImpl;
+import oop_review.manager_vehicle.services.impl.MotorcycleServiceImpl;
+import oop_review.manager_vehicle.services.impl.TruckServiceImpl;
 
 import java.util.Scanner;
 
 public class VehicleController {
-    static IService car = new CarImpl();
-    static IService truck = new TruckImpl();
-    static IService motorcycle = new MotorcycleImpl();
+    static IService car = new CarServiceImpl();
+    static IService truck = new TruckServiceImpl();
+    static IService motorcycle = new MotorcycleServiceImpl();
 
     static Scanner scanner = new Scanner(System.in);
 
