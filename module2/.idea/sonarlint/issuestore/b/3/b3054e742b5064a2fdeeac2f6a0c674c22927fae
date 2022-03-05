@@ -1,0 +1,5 @@
+
+r
+java:S1206""PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ8÷â©«õ/
+]	java:S125+"<This block of commented-out lines of code should be removed.(òß¿•üÿÿÿÿ8ñäËÓõ/
+c	java:S107"BConstructor has 10 parameters, which is greater than 7 authorized.(Þ…Ô—ùÿÿÿÿ8½ËÓõ/

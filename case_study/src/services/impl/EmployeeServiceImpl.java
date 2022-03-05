@@ -1,12 +1,14 @@
 package services.impl;
 
 import models.Employee;
+import models.Person;
 import services.IEmployeeService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeServiceImpl implements IEmployeeService {
-    private static ArrayList<Employee> employeeList = new ArrayList<>();
+    private static List<Person> employeeList = new ArrayList<>();
 
     @Override
     public void add() {

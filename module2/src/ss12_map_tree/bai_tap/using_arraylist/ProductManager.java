@@ -92,7 +92,7 @@ public class ProductManager {
     public boolean getProductByName(String name) {
         boolean result = false;
         for (int i = 0; i < productArrayList.size(); i++) {
-            if (productArrayList.get(i).getProductName().contains(name)) {
+            if (productArrayList.get(i).getProductName().toLowerCase().contains(name.toLowerCase())) {
                 System.out.println(productArrayList.get(i));
                 result = true;
             }

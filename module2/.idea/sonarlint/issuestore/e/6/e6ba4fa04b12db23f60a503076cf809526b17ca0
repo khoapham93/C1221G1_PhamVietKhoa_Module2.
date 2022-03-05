@@ -1,0 +1,13 @@
+
+E
+java:S3740"/Provide the parametrized type for this generic.(à‡“˜
+u
+java:S1450"_Remove the "rankOfGraduation" field and declare it as a local variable in the relevant methods.(”òßç
+o
+java:S1450"YRemove the "university" field and declare it as a local variable in the relevant methods.(ŒúåÎ
+v
+java:S1450"[Remove the "yearGraduate" field and declare it as a local variable in the relevant methods.(ğËÁ—şÿÿÿÿ
+n
+java:S1128"QRemove this unused import 'collection_review.candidate_manager.model.Experience'.(ñÛÔÑ8–çüÔõ/
+…
+java:S1128"cRemove this unused import 'collection_review.candidate_manager.service.impl.ExperienceServiceImpl'.(ñëÖèûÿÿÿÿ8–çüÔõ/

@@ -1,0 +1,20 @@
+
+p
+java:S3008"URename this field "EXPERIENCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦×´úÿÿÿÿ
+m
+java:S3008"RRename this field "FRESHER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëåÿ¿ûÿÿÿÿ
+l
+java:S3008"QRename this field "INTERN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ƒí¼şÿÿÿÿ
+V	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(‡Ä«ë
+q
+java:S1104"VMake EXPERIENCE a static final constant or non-public and provide accessors if needed.(¦×´úÿÿÿÿ
+n
+java:S1104"SMake FRESHER a static final constant or non-public and provide accessors if needed.(ëåÿ¿ûÿÿÿÿ
+m
+java:S1104"RMake INTERN a static final constant or non-public and provide accessors if needed.(¤ƒí¼şÿÿÿÿ
+K
+java:S1444"0Make this "public static EXPERIENCE" field final(¦×´úÿÿÿÿ
+H
+java:S1444"-Make this "public static FRESHER" field final(ëåÿ¿ûÿÿÿÿ
+G
+java:S1444",Make this "public static INTERN" field final(¤ƒí¼şÿÿÿÿ
