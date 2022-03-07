@@ -1,5 +1,8 @@
 package services;
 
-public interface IEmployeeService extends IService{
+import models.Employee;
+
+
+public interface IEmployeeService extends IService <Employee>{
 
 }

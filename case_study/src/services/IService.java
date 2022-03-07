@@ -1,7 +1,9 @@
 package services;
 
-public interface IService {
-    void add();
+import models.Person;
+
+public interface IService<E> {
+    void add(E object);
     void display();
-    void edit();
+    void edit(E object);
 }

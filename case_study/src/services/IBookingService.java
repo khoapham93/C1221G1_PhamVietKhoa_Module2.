@@ -1,5 +1,7 @@
 package services;
 
-public interface IBookingService extends IService{
+import models.Person;
+
+public interface IBookingService extends IService<Person> {
 
 }

@@ -1,13 +1,13 @@
 package models;
 
 public class Customer extends Person{
-    private String custumerCode;
+    private String custumerId;
     private String custumerType;
     private String address;
 
-    public Customer(String fullName, String birthday, String gender, long identityCard, long phoneNumber, String email, String custumerCode, String custumerType, String address) {
+    public Customer(String fullName, String birthday, String gender, String identityCard, String phoneNumber, String email, String custumerId, String custumerType, String address) {
         super(fullName, birthday, gender, identityCard, phoneNumber, email);
-        this.custumerCode = custumerCode;
+        this.custumerId = custumerId;
         this.custumerType = custumerType;
         this.address = address;
     }
@@ -15,12 +15,12 @@ public class Customer extends Person{
     public Customer() {
     }
 
-    public String getCustumerCode() {
-        return custumerCode;
+    public String getCustumerId() {
+        return custumerId;
     }
 
-    public void setCustumerCode(String custumerCode) {
-        this.custumerCode = custumerCode;
+    public void setCustumerId(String custumerId) {
+        this.custumerId = custumerId;
     }
 
     public String getCustumerType() {
@@ -42,7 +42,7 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return "Customer{" +
-                "custumerCode: " + custumerCode + ", " +
+                "custumerCode: " + custumerId + ", " +
                 super.toString()+
                 ", custumerType: " + custumerType +
                 ", address: " + address +
