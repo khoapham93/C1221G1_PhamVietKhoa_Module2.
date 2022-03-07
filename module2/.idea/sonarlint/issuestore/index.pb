@@ -67,3 +67,5 @@ x
 Hsrc/collection_review/candidate_manager/controller/InternController.java,7\3\73911410d68437ee3ec0de41544e7874bb81f57b
 l
 <src/collection_review/candidate_manager/model/Candidate.java,7\4\743dc7154abcef9947736fdef69d2819aa672b81
+t
+Dsrc/ss14_sort_algorithms/thuc_hanh/selection_sort/SelectionSort.java,3\1\318ea51f71b0a544495a6795d167c48f0dc5e2f5
