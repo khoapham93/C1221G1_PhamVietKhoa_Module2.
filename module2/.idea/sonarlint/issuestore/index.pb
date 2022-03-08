@@ -79,3 +79,15 @@ i
 9src/ss6_inheritance/bai_tap/triangle/TestApplication.java,a\8\a8bb671c82df30f46147c5f02a9c3298da2ec6b1
 ƒ
 Ssrc/ss15_exception_debug/thuc_hanh/using_array_index_out_of_bound/ArrayExample.java,c\6\c648548d2d105e745b10fd91df16d2aaf9ceb3f3
+ˆ
+Xsrc/ss15_exception_debug/thuc_hanh/using_number_format_exception/CalculationExample.java,1\f\1f5d9039f21897fb130b6f434daf1941c63a2b9a
+y
+Isrc/ss14_sort_algorithms/thuc_hanh/bubble_sort_setup/BubbleSortSetup.java,5\8\58a2450081e71494805acb093892ae69df60484a
+t
+Dsrc/ss14_sort_algorithms/thuc_hanh/selection_sort/SelectionSort.java,3\1\318ea51f71b0a544495a6795d167c48f0dc5e2f5
+}
+Msrc/ss14_sort_algorithms/bai_tap/insertion_sort_setup/InsertionSortSetup.java,2\b\2bfe79eda5a66e47a8f2a20fa58931e5fd737b3a
+‰
+Ysrc/ss15_exception_debug/bai_tap/illegal_triangle_exception/IllegalTriangleException.java,0\3\03c1f329b9fb4c5ab791465df207d010cecebf58
+€
+Psrc/ss15_exception_debug/bai_tap/illegal_triangle_exception/TriangleExample.java,1\2\123ed1fe3042d3bf8a972dcc796f8f1ef461f3ce
