@@ -11,7 +11,6 @@ public class BubbleSortSetup {
 
     public static void bubbleSort(int[] list) {
         boolean needNextPass = true;
-
         for (int k = 1; k < list.length && needNextPass; k++) {
             /* Array may be sorted and next pass not needed */
             needNextPass = false;

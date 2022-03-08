@@ -15,16 +15,21 @@ public class TriangleExample {
 
         try {
             triangle.checkSidesTriangle(side1, side2, side3);
-        } catch (Exception e){
-            System.err.println("Exception occured: " +e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Exception occured: " + e.getMessage());
         }
     }
 
     public void checkSidesTriangle(double side1, double side2, double side3) throws IllegalTriangleException {
+
         boolean isSidesOfTriangle = side1 + side2 > side3 && side3 + side2 > side1 && side1 + side3 > side2;
-        if (!isSidesOfTriangle) //if sum of 2 side is less than third side then throw exception
-            throw new IllegalTriangleException("Given numbers are not sides of triangle.");
-        else
+        boolean isNegativeNumber = side1 < 0 || side2 < 0 || side3 < 0;
+        if (!isSidesOfTriangle)
+            throw new IllegalTriangleException("Sum of two sides must be greater than other one.");
+        else if (isNegativeNumber) {
+            throw new IllegalTriangleException("Triangle sides must be positive.");
+        } else {
             System.out.println("Triangle follows the rule."); //if no exception occur
+        }
     }
 }
