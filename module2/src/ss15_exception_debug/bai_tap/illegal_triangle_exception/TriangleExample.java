@@ -11,25 +11,11 @@ public class TriangleExample {
         double side2 = Double.parseDouble(scanner.nextLine());
         System.out.print("Third side: ");
         double side3 = Double.parseDouble(scanner.nextLine());
-        TriangleExample triangle = new TriangleExample();
-
         try {
-            triangle.checkSidesTriangle(side1, side2, side3);
+            Triangle triangle = new Triangle(side1,side2,side3);
         } catch (IllegalTriangleException e) {
             System.err.println("Exception occured: " + e.getMessage());
         }
     }
 
-    public void checkSidesTriangle(double side1, double side2, double side3) throws IllegalTriangleException {
-
-        boolean isSidesOfTriangle = side1 + side2 > side3 && side3 + side2 > side1 && side1 + side3 > side2;
-        boolean isNegativeNumber = side1 <= 0 || side2 <= 0 || side3 <= 0;
-        if (isNegativeNumber) {
-            throw new IllegalTriangleException("Triangle sides must be positive.");
-        }else if (!isSidesOfTriangle) {
-            throw new IllegalTriangleException("Sum of two sides must be greater than other one.");
-        } else {
-            System.out.println("Triangle follows the rule."); //if no exception occur
-        }
-    }
 }
