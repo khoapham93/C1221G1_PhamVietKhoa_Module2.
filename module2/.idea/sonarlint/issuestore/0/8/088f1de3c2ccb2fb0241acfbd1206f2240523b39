@@ -1,0 +1,6 @@
+
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Œ¡ ¬üÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(îğ‘ıÿÿÿÿ
+b
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Å€ÒÂ

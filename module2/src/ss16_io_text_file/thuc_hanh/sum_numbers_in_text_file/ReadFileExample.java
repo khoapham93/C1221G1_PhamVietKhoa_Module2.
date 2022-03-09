@@ -25,7 +25,6 @@ public class ReadFileExample {
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-
             // Đọc từng dòng của file và tiến hành cộng tổng lại
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = "";
