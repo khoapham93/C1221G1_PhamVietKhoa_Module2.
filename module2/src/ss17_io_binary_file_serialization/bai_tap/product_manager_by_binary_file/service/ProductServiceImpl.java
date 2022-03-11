@@ -1,7 +1,6 @@
 package ss17_io_binary_file_serialization.bai_tap.product_manager_by_binary_file.service;
 
 import ss17_io_binary_file_serialization.bai_tap.product_manager_by_binary_file.model.Product;
-import ss17_io_binary_file_serialization.bai_tap.product_manager_by_binary_file.util.ReadAndWriteToBinaryFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.Scanner;
 
 public class ProductServiceImpl implements IService {
     private List<Product> productArrayList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
 
     public List<Product> getProductArrayList() {
         return productArrayList;
@@ -40,6 +38,7 @@ public class ProductServiceImpl implements IService {
     }
 
     public void update(Product product) {
+
         int index = productArrayList.indexOf(product);
         if (index != -1) {
             productArrayList.set(index, product);

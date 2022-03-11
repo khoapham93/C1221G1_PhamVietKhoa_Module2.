@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class View {
     public static void main(String[] args) {
         ProductController productController = new ProductController();
-
         Scanner scanner = new Scanner(System.in);
         String productName;
         int choice = -1;
@@ -19,7 +18,8 @@ public class View {
                     "3. Delete product\n" +
                     "4. Display product list\n" +
                     "5. Searching product\n" +
-                    "6. Exit");
+                    "6. Save to file\n"+
+                    "7. Exit");
             System.out.print("Enter your choice: ");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -33,7 +33,6 @@ public class View {
                     System.out.print("Comming soon: ");
                     break;
                 case 4:
-                    System.out.println("Product's list: ");
                     productController.displayProductList();
                     break;
                 case 5:
@@ -42,6 +41,9 @@ public class View {
                     productController.searchProduct(productName);
                     break;
                 case 6:
+                    productController.saveToBianryFile();
+                    break;
+                    case 7:
                     System.exit(0);
                     break;
                 default:
