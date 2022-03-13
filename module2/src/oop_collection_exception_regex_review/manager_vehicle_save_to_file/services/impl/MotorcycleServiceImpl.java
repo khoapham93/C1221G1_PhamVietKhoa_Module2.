@@ -4,6 +4,7 @@ import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models.Vehicle;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.services.IService;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.ReadAndWriteFile;
+import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.Validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,29 @@ public class MotorcycleServiceImpl extends VehicleServiceImpl implements IServic
     @Override
     public void add() {
         System.out.println("Add new motorcycle");
+        //Nhập LiscesePlate
+        String licensePlate = null;
+        do {
+            System.out.print("License plate: ");
+            licensePlate = scanner.nextLine();
+        } while (!Validation.checkLicensePlateMotorcycle(licensePlate));
+
         super.addNewVehicle();
-        System.out.print("Cylinder capacity: ");
-        int cylinderCapacity = Integer.parseInt(scanner.nextLine());
-        Motorcycle motorcycle = new Motorcycle(super.licensePlate, super.manufacturer, super.productionYear, super.owner, cylinderCapacity);
+
+        int cylinderCapacity = 0;
+        do {
+            System.out.print("Cylinder capacity (>50): ");
+           String cylinderCapacityInput = scanner.nextLine();
+           if (Validation.checkPositiveInteger(cylinderCapacityInput)){
+               cylinderCapacity = Integer.parseInt(cylinderCapacityInput);
+               if (cylinderCapacity > 50){
+                   break;
+               }
+           }
+        } while (true);
+
+        Motorcycle motorcycle = new Motorcycle(licensePlate, super.manufacturer, super.productionYear, super.owner, cylinderCapacity);
+
         motorcycles.add(motorcycle);
 
         ReadAndWriteFile.writeAllVehicleTypeToCSV(MOTORCYCLE_SOURCE_FILE, motorcycles);

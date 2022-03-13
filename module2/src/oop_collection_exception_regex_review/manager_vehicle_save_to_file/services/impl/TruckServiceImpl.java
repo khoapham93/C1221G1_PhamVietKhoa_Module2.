@@ -4,6 +4,7 @@ import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models.Vehicle;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.services.IService;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.ReadAndWriteFile;
+import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.Validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +22,26 @@ public class TruckServiceImpl extends VehicleServiceImpl implements IService {
     @Override
     public void add() {
         System.out.println("Add new truck");
+        //Nhập LiscesePlate
+        String licensePlate = null;
+        do {
+            System.out.print("License plate: ");
+            licensePlate = scanner.nextLine();
+        } while (!Validation.checkLicensePlateTruck(licensePlate));
+
         super.addNewVehicle();
-        System.out.print("maximum load: ");
-        int maximumLoad = Integer.parseInt(scanner.nextLine());
-        Truck truck = new Truck(super.licensePlate, super.manufacturer, super.productionYear, super.owner, maximumLoad);
+
+        double maximumLoad = 0;
+        do {
+            System.out.print("maximum load: ");
+            String load = scanner.nextLine();
+            if (Validation.checkPositiveDouble(load)){
+                maximumLoad = Double.parseDouble(load);
+                break;
+            }
+        }while (true);
+
+        Truck truck = new Truck(licensePlate, super.manufacturer, super.productionYear, super.owner, maximumLoad);
         trucks.add(truck);
         ReadAndWriteFile.writeAllVehicleTypeToCSV(TRUCK_SOURCE_FILE, trucks);
         System.out.println("Vehicle's added!");

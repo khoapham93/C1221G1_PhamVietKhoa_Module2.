@@ -53,7 +53,7 @@ public abstract class Vehicle {
     @Override
     public String toString() {
         return "licensePlate: " + licensePlate +
-                ", manufacturer name: " + manufacturer.getManufacturerName() +
+                ", manufacturer: " + manufacturer +
                 ", productionYear: " + productionYear +
                 ", owner: " + owner;
     }

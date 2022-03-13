@@ -69,7 +69,7 @@ public class ConverArrayStringToObject {
             Manufacturer manufacturer = ManufacturerServiceImpl.getManufacturerByName(manufacturerName);
             int productionYear= Integer.parseInt(array[2]);
             String owner= array[3];
-            int maximumLoad = Integer.parseInt(array[4]);
+            double maximumLoad = Double.parseDouble(array[4]);
             return new Truck(licensePlate, manufacturer, productionYear, owner, maximumLoad);
         } else {
             return new Truck();

@@ -4,6 +4,8 @@ import oop_collection_exception_regex_review.manager_vehicle_save_to_file.servic
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.services.impl.CarServiceImpl;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.services.impl.MotorcycleServiceImpl;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.services.impl.TruckServiceImpl;
+import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.NotFoundVehicelException;
+import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.Validation;
 
 import java.util.Scanner;
 
@@ -24,8 +26,7 @@ public class VehicleController {
                     "2. Display vehicles\n" +
                     "3. Delete vehicle\n" +
                     "4. Exit");
-            System.out.print("Enter your choice: ");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = checkTypeChoice();
             System.out.println();
             switch (choice) {
                 case 1:
@@ -35,7 +36,18 @@ public class VehicleController {
                     displayVehicle();
                     break;
                 case 3:
-                    removeVehicle();
+                    try {
+                        removeVehicle();
+                    } catch (NotFoundVehicelException e) {
+                        System.err.println(e.getMessage());
+                        String backToMainMenu = "choice";
+                        while (!"".equals(backToMainMenu)){
+                            System.out.println();
+                            System.out.print("Press Enter to return main menu:");
+                            System.out.println();
+                            backToMainMenu = scanner.nextLine();
+                        }
+                    }
                     break;
                 case 4:
                     System.exit(0);
@@ -53,8 +65,8 @@ public class VehicleController {
                         "1. Truck\n" +
                         "2. Car\n" +
                         "3. Motorcycle\n");
-        System.out.print("Enter your choice: ");
-        choice = Integer.parseInt(scanner.nextLine());
+
+        choice = checkTypeChoice();
         System.out.println();
         switch (choice) {
             case 1:
@@ -78,8 +90,7 @@ public class VehicleController {
                         "1. Truck\n" +
                         "2. Car\n" +
                         "3. Motorcycle\n");
-        System.out.print("Enter your choice: ");
-        choice = Integer.parseInt(scanner.nextLine());
+        choice = checkTypeChoice();
         System.out.println();
         switch (choice) {
             case 1:
@@ -95,19 +106,30 @@ public class VehicleController {
                 System.out.println("No choice selected");
         }
     }
-
-    public static void removeVehicle() {
+    public static void removeVehicle() throws NotFoundVehicelException {
         System.out.print("Enter license plate of vehicle want to remove: ");
         String licensePlateRemove = scanner.nextLine();
         boolean carRemoved = car.remove(licensePlateRemove);
         boolean truckRemoved = truck.remove(licensePlateRemove);
         boolean motorcycleRemoved = motorcycle.remove(licensePlateRemove);
         if (!carRemoved && !truckRemoved && !motorcycleRemoved) {
-            System.out.println("There's no vehicle deleted!");
-        } else {
-            System.out.println("The vehicle was deleted!");
+            throw new NotFoundVehicelException("The license plate doesn't exist!");
         }
         System.out.println();
+    }
+
+    public static int checkTypeChoice(){
+        int choice = -1;
+        do {
+            System.out.print("Enter your choice: ");
+            String choiceString = scanner.nextLine();
+            if (Validation.checkPositiveInteger(choiceString)){
+                choice = Integer.parseInt(choiceString);
+                break;
+            }
+        }while (true);
+        System.out.println();
+        return choice;
     }
 }
 

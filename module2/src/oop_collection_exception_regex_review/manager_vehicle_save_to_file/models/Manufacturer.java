@@ -41,13 +41,13 @@ public class Manufacturer {
 
     @Override
     public String toString() {
-        return "HangSanXuat{" +
-                "manufacturerId:'" + manufacturerId + '\'' +
-                ", manufacturerName:'" + manufacturerName + '\'' +
-                ", country:'" + country + '\'' +
-                '}';
+        return  "(Id: " + manufacturerId +
+                " | Name: " + manufacturerName +
+                " | country: " + country +
+                ")";
     }
+
     public String getInfoToCSV() {
-        return this.manufacturerId + "," + this.manufacturerName + "," +this.country;
+        return this.manufacturerId + "," + this.manufacturerName + "," + this.country;
     }
 }
