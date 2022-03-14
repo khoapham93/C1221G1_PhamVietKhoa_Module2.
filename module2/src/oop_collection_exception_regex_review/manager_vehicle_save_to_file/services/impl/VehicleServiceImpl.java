@@ -54,13 +54,20 @@ public class VehicleServiceImpl {
             if (vehicle.getLicensePlate().equals(licensePlate)) {
                 System.out.println("Vehicle found: ");
                 System.out.println(vehicle);
-                System.out.print("Are you sure want to remove vehicle (Y/N)");
-                String choose = scanner.nextLine();
-                if (choose.equals("Y")) {
+                String choose = null;
+                do {
+                    System.out.print("Are you sure want to remove vehicle (Y/N)");
+                    choose = scanner.nextLine().toLowerCase();
+                    if ("y".equals(choose)||"n".equals(choose)){
+                        break;
+                    }
+                }while (true);
+
+                if ("y".equals(choose)) {
                     vehicleList.remove(vehicle);
                     System.out.println("The vehicle was deleted!");
-                    return true;
                 }
+                return true;
             }
         }
         return false;

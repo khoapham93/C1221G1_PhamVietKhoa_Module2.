@@ -1,5 +1,8 @@
 package oop_collection_exception_regex_review.manager_vehicle_save_to_file.util;
 
+import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models.Vehicle;
+
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Validation {

@@ -65,11 +65,12 @@ public class CarServiceImpl extends VehicleServiceImpl implements IService {
         Scanner scanner = new Scanner(System.in);
         String choose = null;
         int index = -1;
+        System.out.println("Car type: ");
+        for (int i = 0; i < carTypeList.size(); i++) {
+            System.out.println((i) + ". " + carTypeList.get(i));
+        }
+
         do {
-            System.out.println("Car type: ");
-            for (int i = 0; i < carTypeList.size(); i++) {
-                System.out.println((i) + ". " + carTypeList.get(i));
-            }
             System.out.print("Enter your choice: ");
             choose = scanner.nextLine();
             if (Validation.checkPositiveInteger(choose)) {
@@ -92,18 +93,35 @@ public class CarServiceImpl extends VehicleServiceImpl implements IService {
             switch (carType) {
                 case "Travel car": {
                     if (Validation.checkLicensePlateTravelCar(licensePlate)) {
-                        check = true;
+                        if (!checkExistLicensePlate(licensePlate)){
+                            check = true;
+                        }else {
+                            System.out.println("License plate existed!");
+                        }
                     }
                     break;
                 }
                 case "Bus": {
                     if (Validation.checkLicensePlateBus(licensePlate)) {
-                        check = true;
+                        if (!checkExistLicensePlate(licensePlate)){
+                            check = true;
+                        }else {
+                            System.out.println("License plate existed!");
+                        }
                     }
                     break;
                 }
             }
         } while (!check);
         return licensePlate;
+    }
+
+    private static boolean checkExistLicensePlate(String licensePlate){
+        for (Vehicle vehicle : cars) {
+            if (vehicle.getLicensePlate().equals(licensePlate)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

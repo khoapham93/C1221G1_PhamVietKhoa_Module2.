@@ -16,28 +16,37 @@ public class MotorcycleServiceImpl extends VehicleServiceImpl implements IServic
     static {
         motorcycles = ReadAndWriteFile.readMotocycleListFromCSV(MOTORCYCLE_SOURCE_FILE);
     }
+
     @Override
     public void add() {
         System.out.println("Add new motorcycle");
         //Nhập LiscesePlate
         String licensePlate = null;
+
         do {
             System.out.print("License plate: ");
             licensePlate = scanner.nextLine();
-        } while (!Validation.checkLicensePlateMotorcycle(licensePlate));
+            if (Validation.checkLicensePlateMotorcycle(licensePlate)) {
+                if (!checkExistLicensePlate(licensePlate)) {
+                    break;
+                } else {
+                    System.out.println("License plate existed!");
+                }
+            }
+        } while (true);
 
         super.addNewVehicle();
 
         int cylinderCapacity = 0;
         do {
             System.out.print("Cylinder capacity (>50): ");
-           String cylinderCapacityInput = scanner.nextLine();
-           if (Validation.checkPositiveInteger(cylinderCapacityInput)){
-               cylinderCapacity = Integer.parseInt(cylinderCapacityInput);
-               if (cylinderCapacity > 50){
-                   break;
-               }
-           }
+            String cylinderCapacityInput = scanner.nextLine();
+            if (Validation.checkPositiveInteger(cylinderCapacityInput)) {
+                cylinderCapacity = Integer.parseInt(cylinderCapacityInput);
+                if (cylinderCapacity > 50) {
+                    break;
+                }
+            }
         } while (true);
 
         Motorcycle motorcycle = new Motorcycle(licensePlate, super.manufacturer, super.productionYear, super.owner, cylinderCapacity);
@@ -56,9 +65,18 @@ public class MotorcycleServiceImpl extends VehicleServiceImpl implements IServic
 
     @Override
     public boolean remove(String licensePlate) {
-        if (super.remove(licensePlate, motorcycles)){
+        if (super.remove(licensePlate, motorcycles)) {
             ReadAndWriteFile.writeAllVehicleTypeToCSV(MOTORCYCLE_SOURCE_FILE, motorcycles);
             return true;
+        }
+        return false;
+    }
+
+    private static boolean checkExistLicensePlate(String licensePlate) {
+        for (Vehicle vehicle : motorcycles) {
+            if (vehicle.getLicensePlate().equals(licensePlate)) {
+                return true;
+            }
         }
         return false;
     }

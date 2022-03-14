@@ -27,7 +27,14 @@ public class TruckServiceImpl extends VehicleServiceImpl implements IService {
         do {
             System.out.print("License plate: ");
             licensePlate = scanner.nextLine();
-        } while (!Validation.checkLicensePlateTruck(licensePlate));
+            if (Validation.checkLicensePlateTruck(licensePlate)) {
+                if (!checkExistLicensePlate(licensePlate)) {
+                    break;
+                } else {
+                    System.out.println("License plate existed!");
+                }
+            }
+        } while (true);
 
         super.addNewVehicle();
 
@@ -35,11 +42,11 @@ public class TruckServiceImpl extends VehicleServiceImpl implements IService {
         do {
             System.out.print("maximum load: ");
             String load = scanner.nextLine();
-            if (Validation.checkPositiveDouble(load)){
+            if (Validation.checkPositiveDouble(load)) {
                 maximumLoad = Double.parseDouble(load);
                 break;
             }
-        }while (true);
+        } while (true);
 
         Truck truck = new Truck(licensePlate, super.manufacturer, super.productionYear, super.owner, maximumLoad);
         trucks.add(truck);
@@ -61,4 +68,12 @@ public class TruckServiceImpl extends VehicleServiceImpl implements IService {
         return false;
     }
 
+    private static boolean checkExistLicensePlate(String licensePlate) {
+        for (Vehicle vehicle : trucks) {
+            if (vehicle.getLicensePlate().equals(licensePlate)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
