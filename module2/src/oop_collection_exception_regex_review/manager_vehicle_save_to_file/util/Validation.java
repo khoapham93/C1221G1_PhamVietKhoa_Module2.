@@ -18,7 +18,8 @@ public class Validation {
 
     //Tên Tiếng Việt có dấu \p{L}: Tất cả Các ký tự Unicode.
     //                     \p{Ll}: Các ký tự Unicode lowercase .
-    private static final String VIETNAMESE_NAME_REGEX = "^[A-Z]\\p{Ll}+( [A-Z]\\p{Ll}+)*$";
+    //                     \p{Lu}: Các ký tự Unicode Uppercase .
+    private static final String VIETNAMESE_NAME_REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*$";
 
 
     public static boolean checkLicensePlateTravelCar(String regex) {
