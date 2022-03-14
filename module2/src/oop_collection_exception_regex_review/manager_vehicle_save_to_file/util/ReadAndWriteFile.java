@@ -55,7 +55,7 @@ public class ReadAndWriteFile {
         List<Manufacturer> manufacturerList = new ArrayList<>();
         List<String> stringList = readListStringFromCSV(filePath);
         String[] arr = null;
-        if (stringList.size() != 0){
+        if (stringList.size() != 0) {
             for (String string : stringList) {
                 arr = string.split(",");
                 Manufacturer manufacturer = ConverArrayStringToObject.convertStringToManufacturer(arr);

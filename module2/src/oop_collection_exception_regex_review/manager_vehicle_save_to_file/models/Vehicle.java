@@ -57,7 +57,8 @@ public abstract class Vehicle {
                 ", productionYear: " + productionYear +
                 ", owner: " + owner;
     }
-    public String getInfoToCSV(){
-        return this.licensePlate +","+ this.manufacturer.getManufacturerName() +","+ this.productionYear +","+ this.owner;
+
+    public String getInfoToCSV() {
+        return this.licensePlate + "," + this.manufacturer.getManufacturerName() + "," + this.productionYear + "," + this.owner;
     }
 }

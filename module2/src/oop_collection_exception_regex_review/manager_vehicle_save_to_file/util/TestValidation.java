@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
 public class TestValidation {
     public static void main(String[] args) {
         String REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*$";
-        Scanner scanner= new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập ký tự: ");
         String string = scanner.nextLine();
-        System.out.println(Pattern.matches(REGEX,string));
+        System.out.println(Pattern.matches(REGEX, string));
     }
 }

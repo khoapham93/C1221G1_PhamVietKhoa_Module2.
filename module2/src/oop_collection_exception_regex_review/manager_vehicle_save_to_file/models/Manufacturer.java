@@ -41,7 +41,7 @@ public class Manufacturer {
 
     @Override
     public String toString() {
-        return  "(Id: " + manufacturerId +
+        return "(Id: " + manufacturerId +
                 " | Name: " + manufacturerName +
                 " | country: " + country +
                 ")";

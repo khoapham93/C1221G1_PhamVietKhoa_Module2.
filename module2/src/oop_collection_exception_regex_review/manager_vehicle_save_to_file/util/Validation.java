@@ -24,7 +24,6 @@ public class Validation {
     //                     \p{Lu}: Các ký tự Unicode Uppercase .
     private static final String VIETNAMESE_NAME_REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*$";
 
-
     public static boolean checkLicensePlateTravelCar(String regex) {
         return Pattern.matches(LICENSE_PLATE_TRAVEL_CAR_REGEX, regex);
     }

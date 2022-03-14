@@ -93,9 +93,9 @@ public class CarServiceImpl extends VehicleServiceImpl implements IService {
             switch (carType) {
                 case "Travel car": {
                     if (Validation.checkLicensePlateTravelCar(licensePlate)) {
-                        if (!checkExistLicensePlate(licensePlate)){
+                        if (!checkExistLicensePlate(licensePlate)) {
                             check = true;
-                        }else {
+                        } else {
                             System.out.println("License plate existed!");
                         }
                     }
@@ -103,9 +103,9 @@ public class CarServiceImpl extends VehicleServiceImpl implements IService {
                 }
                 case "Bus": {
                     if (Validation.checkLicensePlateBus(licensePlate)) {
-                        if (!checkExistLicensePlate(licensePlate)){
+                        if (!checkExistLicensePlate(licensePlate)) {
                             check = true;
-                        }else {
+                        } else {
                             System.out.println("License plate existed!");
                         }
                     }
@@ -116,7 +116,7 @@ public class CarServiceImpl extends VehicleServiceImpl implements IService {
         return licensePlate;
     }
 
-    private static boolean checkExistLicensePlate(String licensePlate){
+    private static boolean checkExistLicensePlate(String licensePlate) {
         for (Vehicle vehicle : cars) {
             if (vehicle.getLicensePlate().equals(licensePlate)) {
                 return true;

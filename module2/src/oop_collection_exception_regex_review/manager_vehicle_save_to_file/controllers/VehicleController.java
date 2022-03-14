@@ -41,7 +41,7 @@ public class VehicleController {
                     } catch (NotFoundVehicelException e) {
                         System.err.println(e.getMessage());
                         String backToMainMenu = "choice";
-                        while (!"".equals(backToMainMenu)){
+                        while (!"".equals(backToMainMenu)) {
                             System.out.println();
                             System.out.print("Press Enter to return main menu:");
                             System.out.println();
@@ -106,6 +106,7 @@ public class VehicleController {
                 System.out.println("No choice selected");
         }
     }
+
     public static void removeVehicle() throws NotFoundVehicelException {
         System.out.print("Enter license plate of vehicle want to remove: ");
         String licensePlateRemove = scanner.nextLine();
@@ -118,16 +119,16 @@ public class VehicleController {
         System.out.println();
     }
 
-    public static int checkTypeChoice(){
+    public static int checkTypeChoice() {
         int choice = -1;
         do {
             System.out.print("Enter your choice: ");
             String choiceString = scanner.nextLine();
-            if (Validation.checkPositiveInteger(choiceString)){
+            if (Validation.checkPositiveInteger(choiceString)) {
                 choice = Integer.parseInt(choiceString);
                 break;
             }
-        }while (true);
+        } while (true);
         System.out.println();
         return choice;
     }

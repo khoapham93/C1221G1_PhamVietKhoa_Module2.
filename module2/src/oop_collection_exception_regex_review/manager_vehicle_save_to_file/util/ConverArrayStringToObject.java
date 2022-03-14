@@ -36,8 +36,8 @@ public class ConverArrayStringToObject {
             String licensePlate = array[0];
             String manufacturerName = array[1];
             Manufacturer manufacturer = ManufacturerServiceImpl.getManufacturerByName(manufacturerName);
-            int productionYear= Integer.parseInt(array[2]);
-            String owner= array[3];
+            int productionYear = Integer.parseInt(array[2]);
+            String owner = array[3];
             int seat = Integer.parseInt(array[4]);
             String carType = array[5];
             return new Car(licensePlate, manufacturer, productionYear, owner, seat, carType);
@@ -52,8 +52,8 @@ public class ConverArrayStringToObject {
             String licensePlate = array[0];
             String manufacturerName = array[1];
             Manufacturer manufacturer = ManufacturerServiceImpl.getManufacturerByName(manufacturerName);
-            int productionYear= Integer.parseInt(array[2]);
-            String owner= array[3];
+            int productionYear = Integer.parseInt(array[2]);
+            String owner = array[3];
             int cylinderCapacity = Integer.parseInt(array[4]);
             return new Motorcycle(licensePlate, manufacturer, productionYear, owner, cylinderCapacity);
         } else {
@@ -67,8 +67,8 @@ public class ConverArrayStringToObject {
             String licensePlate = array[0];
             String manufacturerName = array[1];
             Manufacturer manufacturer = ManufacturerServiceImpl.getManufacturerByName(manufacturerName);
-            int productionYear= Integer.parseInt(array[2]);
-            String owner= array[3];
+            int productionYear = Integer.parseInt(array[2]);
+            String owner = array[3];
             double maximumLoad = Double.parseDouble(array[4]);
             return new Truck(licensePlate, manufacturer, productionYear, owner, maximumLoad);
         } else {

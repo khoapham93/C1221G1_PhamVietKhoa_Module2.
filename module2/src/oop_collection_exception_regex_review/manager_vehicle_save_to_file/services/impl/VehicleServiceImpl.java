@@ -4,7 +4,6 @@ import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.models.Vehicle;
 import oop_collection_exception_regex_review.manager_vehicle_save_to_file.util.Validation;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
@@ -23,14 +22,14 @@ public class VehicleServiceImpl {
         do {
             System.out.print("Year of production: ");
             String yearString = scanner.nextLine();
-            if (Validation.checkYear(yearString)){
+            if (Validation.checkYear(yearString)) {
                 productionYear = Integer.parseInt(yearString);
                 int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-                if (productionYear>=1800 && productionYear<=currentYear){
+                if (productionYear >= 1800 && productionYear <= currentYear) {
                     break;
                 }
             }
-        }while (true);
+        } while (true);
 
         do {
             System.out.print("Owner: ");
@@ -58,14 +57,16 @@ public class VehicleServiceImpl {
                 do {
                     System.out.print("Are you sure want to remove vehicle (Y/N)");
                     choose = scanner.nextLine().toLowerCase();
-                    if ("y".equals(choose)||"n".equals(choose)){
+                    if ("y".equals(choose) || "n".equals(choose)) {
                         break;
                     }
-                }while (true);
+                } while (true);
 
                 if ("y".equals(choose)) {
                     vehicleList.remove(vehicle);
                     System.out.println("The vehicle was deleted!");
+                } else {
+                    System.out.println("Cancel delete!");
                 }
                 return true;
             }
@@ -89,5 +90,4 @@ public class VehicleServiceImpl {
         } while (true);
         return ManufacturerServiceImpl.getManufacturerByIndex(manufacturerIndex);
     }
-
 }
