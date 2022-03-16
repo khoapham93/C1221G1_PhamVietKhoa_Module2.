@@ -1,13 +1,19 @@
 package controllers;
 
+import controllers.impl.CustomerController;
+import controllers.impl.EmployeeController;
+
 import java.util.Scanner;
 
 public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
+    static EmployeeController employeeController = new EmployeeController();
+    static CustomerController customerController = new CustomerController();
 
     public void displayMainMenu() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
             System.out.println("-------------------------------------\n" +
                     "FURAMA RESORT MANAGEMENT PROGRAM\n" +
                     "Main menu:\n" +
@@ -48,6 +54,7 @@ public class FuramaController {
     public static void promotionManagement() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
             System.out.println("Promotion Management\n" +
                     "1. Display list customers use service\n" +
                     "2. Display list customers get voucher\n" +
@@ -74,6 +81,7 @@ public class FuramaController {
     public static void bookingManagement() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
             System.out.println("Booking Management\n" +
                     "1. Add new booking\n" +
                     "2. Display list booking\n" +
@@ -112,6 +120,7 @@ public class FuramaController {
     public static void facilityManagement() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
             System.out.println("Facility Management\n" +
                     "1. Display list facility\n" +
                     "2. Add new facility\n" +
@@ -142,6 +151,7 @@ public class FuramaController {
     public static void customerManagement() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
             System.out.println("Customer Management\n" +
                     "1. Display list customers\n" +
                     "2. Add new customer\n" +
@@ -152,13 +162,13 @@ public class FuramaController {
             System.out.println();
             switch (choice) {
                 case 1:
-
+                    customerController.display();
                     break;
                 case 2:
-
+                    customerController.add();
                     break;
                 case 3:
-
+                    customerController.edit();
                     break;
                 case 4:
                     choice = 0;
@@ -172,6 +182,7 @@ public class FuramaController {
     public static void employeeManagement() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
             System.out.println("Employee Management\n" +
                     "1. Display list employees\n" +
                     "2. Add new employee\n" +
@@ -182,13 +193,13 @@ public class FuramaController {
             System.out.println();
             switch (choice) {
                 case 1:
-
+                    employeeController.display();
                     break;
                 case 2:
-
+                    employeeController.add();
                     break;
                 case 3:
-
+                    employeeController.edit();
                     break;
                 case 4:
                     choice = 0;

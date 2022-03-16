@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class CarServiceImpl extends VehicleServiceImpl implements IService {
     private static List<Vehicle> cars;
+
     private static List<String> carTypeList = new ArrayList<>();
     private static final String CAR_SOURCE_FILE = "src\\oop_collection_exception_regex_review\\manager_vehicle_save_to_file\\data\\Car.csv";
 

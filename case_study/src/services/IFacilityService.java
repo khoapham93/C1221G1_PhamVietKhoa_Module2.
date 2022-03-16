@@ -1,4 +1,9 @@
 package services;
 
-public interface IFacilityService {
+import models.facility.Facility;
+
+import java.util.Map;
+
+public interface IFacilityService extends IService<Facility>{
+    Map<Facility,Integer> getFacilityMap();
 }
