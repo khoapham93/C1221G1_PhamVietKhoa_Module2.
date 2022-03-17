@@ -1,56 +1,96 @@
 package utils;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Validation {
+    private static Scanner scannerValidate = new Scanner(System.in);
 
-    //XXA-XXX.XX (X : 0÷9)
-    private static final String LICENSE_PLATE_TRAVEL_CAR_REGEX = "^\\d{2}A-\\d{3}\\.\\d{2}$";
-    //XXB-XXX.XX (X : 0÷9)
-    private static final String LICENSE_PLATE_BUS_REGEX = "^\\d{2}B-\\d{3}\\.\\d{2}$";
-    //XXC-XXX.XX (X : 0÷9)
-    private static final String LICENSE_PLATE_TRUCK_REGEX = "^\\d{2}C-\\d{3}\\.\\d{2}$";
-    //XX-YZ-XXX.XX (X : 0÷9, Y= (Chữ cái in hoa), Z =(0÷9) hoặc (Chữ cái in Hoa).
-    private static final String LICENSE_PLATE_MOTORCYCLE_REGEX = "^\\d{2}-[A-Z](\\d|[A-Z])-\\d{3}\\.\\d{2}$";
+    private static final String VILLA_ID_REGEX = "^SVVL-\\d{4}$";
+    private static final String HOUSE_ID_REGEX = "^SVHO-\\d{4}$";
+    private static final String ROOM_ID_REGEX = "^SVRO-\\d{4}$";
+    private static final String FACILITY_NAME_REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*( [0-9]+)*$";
     private static final String YEAR_REGEX = "^[+]?\\d{4}$";
-    private static final String BIRTHDAY_REGEX = "^[+]?\\d{4}$";
+    private static final String DDMMYYYY_REGEX = "^(0?[1-9]|[12][0-9]|3[01])\\/(0?[1-9]|1[0-2])\\/\\d\\d\\d\\d$";
     private static final String POSITIVE_INTEGER_REGEX = "^[+]?\\d+$";
+    private static final String INTEGER_GREATER_THAN_0_REGEX = "^[+]?[0]*[1-9][0-9]*$";
+    private static final String POSITIVE_INTEGER_FROM_1_TO_19_REGEX = "^[+]?([1-9]|1[0-9])$";
     private static final String POSITIVE_DOUBLE_REGEX = "^[+]?(\\d*\\.)?\\d+$";
+    private static final String EMAIL_REGEX = "^\\w+([\\.-]?\\w+)*@[a-z]+\\.(\\w+)(\\.\\w{2,3})?";
 
     //Tên Tiếng Việt có dấu \p{L}: Tất cả Các ký tự Unicode.
     //                     \p{Ll}: Các ký tự Unicode lowercase .
     //                     \p{Lu}: Các ký tự Unicode Uppercase .
     private static final String VIETNAMESE_NAME_REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*$";
 
-    public static boolean checkLicensePlateTravelCar(String regex) {
-        return Pattern.matches(LICENSE_PLATE_TRAVEL_CAR_REGEX, regex);
+    private static String regexStringFromPattern(String pattern, String inputString, String message) {
+        do {
+            if (Pattern.matches(pattern, inputString)) {
+                break;
+            } else {
+                System.out.print(message);
+                inputString = scannerValidate.nextLine();
+            }
+        } while (true);
+
+        return inputString;
     }
 
-    public static boolean checkLicensePlateBus(String regex) {
-        return Pattern.matches(LICENSE_PLATE_BUS_REGEX, regex);
+    public static String checkFacilityName(String regex, String message) {
+        return regexStringFromPattern(FACILITY_NAME_REGEX, regex, message);
     }
 
-    public static boolean checkLicensePlateTruck(String regex) {
-        return Pattern.matches(LICENSE_PLATE_TRUCK_REGEX, regex);
+    public static String checkDayMothYearString(String regex, String message) {
+        return regexStringFromPattern(DDMMYYYY_REGEX, regex, message);
     }
 
-    public static boolean checkLicensePlateMotorcycle(String regex) {
-        return Pattern.matches(LICENSE_PLATE_MOTORCYCLE_REGEX, regex);
+    public static String checkHouseId(String regex, String message) {
+        return regexStringFromPattern(HOUSE_ID_REGEX, regex, message);
     }
 
-    public static boolean checkYear(String regex) {
-        return Pattern.matches(YEAR_REGEX, regex);
+    public static String checkRoomId(String regex, String message) {
+        return regexStringFromPattern(ROOM_ID_REGEX, regex, message);
     }
 
-    public static boolean checkPositiveInteger(String regex) {
-        return Pattern.matches(POSITIVE_INTEGER_REGEX, regex);
+    public static String checkVillaId(String regex, String message) {
+        return regexStringFromPattern(VILLA_ID_REGEX, regex, message);
     }
 
-    public static boolean checkPositiveDouble(String regex) {
-        return Pattern.matches(POSITIVE_DOUBLE_REGEX, regex);
+    public static String checkYear(String regex, String message) {
+        return regexStringFromPattern(YEAR_REGEX, regex, message);
     }
 
-    public static boolean checkVietnameseName(String regex) {
-        return Pattern.matches(VIETNAMESE_NAME_REGEX, regex);
+    public static String checkPositiveInteger(String regex, String message) {
+        return regexStringFromPattern(POSITIVE_INTEGER_REGEX, regex, message);
+    }
+    public static String checkIntegerGreaterThan0(String regex, String message) {
+        return regexStringFromPattern(INTEGER_GREATER_THAN_0_REGEX, regex, message);
+    }
+    public static String checkPositiveFrom1To19Integer(String regex, String message) {
+        return regexStringFromPattern(POSITIVE_INTEGER_FROM_1_TO_19_REGEX, regex, message);
+    }
+
+    public static String checkPositiveDouble(String regex, String message) {
+        return regexStringFromPattern(POSITIVE_DOUBLE_REGEX, regex, message);
+    }
+
+    public static double checkPositiveDoubleGreaterThan30(String regex, String message) {
+        String temp = checkPositiveDouble(regex, message);
+        double checkGreaterThan30 = Double.parseDouble(temp);
+        while (true) {
+            if (checkGreaterThan30 >30.0){
+                break;
+            }else {
+                System.out.print("Number must be greater than 30, try again: ");
+                regex = scannerValidate.nextLine();
+                temp = checkPositiveDouble(regex, message);
+                checkGreaterThan30 = Double.parseDouble(temp);
+            }
+        }
+        return checkGreaterThan30;
+    }
+
+    public static String checkVietnameseName(String regex, String message) {
+        return regexStringFromPattern(VIETNAMESE_NAME_REGEX, regex, message);
     }
 }

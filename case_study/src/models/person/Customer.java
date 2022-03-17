@@ -3,7 +3,7 @@ package models.person;
 import enums.CustomerType;
 import enums.Gender;
 
-public class Customer extends Person{
+public class Customer extends Person {
     private CustomerType custumerType;
     private String address;
 
@@ -35,9 +35,13 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return "Customer{" +
-                super.toString()+
+                super.toString() +
                 ", custumerType: " + custumerType +
                 ", address: " + address +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return super.getInfoToCSV() + "," + custumerType + "," + address;
     }
 }

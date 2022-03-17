@@ -75,10 +75,14 @@ public abstract class Facility {
     @Override
     public String toString() {
         return "id: " + id +
-                "Name: " + name +
+                ", name: " + name +
                 ", usableFloorArea: " + usableFloorArea +
                 ", rentalCost: " + rentalCost +
                 ", maximumPeople: " + maximumPeople +
                 ", rentalType: " + rentalType;
+    }
+
+    public String getInfoToCSV() {
+        return id + "," + name + "," + usableFloorArea + "," + rentalCost + "," + maximumPeople + "," + rentalType;
     }
 }

@@ -21,7 +21,7 @@ public abstract class Person {
         this.email = email;
     }
 
-    public Person(){
+    public Person() {
 
     }
 
@@ -83,12 +83,16 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return  "id: " + id +
-                "fullName: " + fullName +
+        return "id: " + id +
+                ", fullName: " + fullName +
                 ", birthday: " + birthday +
                 ", gender: " + gender +
                 ", identityCard: " + identityCard +
                 ", phoneNumber: " + phoneNumber +
                 ", email: " + email;
+    }
+
+    public String getInfoToCSV() {
+        return id + "," + fullName + "," + birthday + "," + gender + "," + identityCard + "," + phoneNumber + "," + email;
     }
 }

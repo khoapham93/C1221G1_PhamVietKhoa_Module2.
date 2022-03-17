@@ -28,4 +28,8 @@ public class Room extends Facility{
                 ", freeServiceIncluded: " + freeServiceIncluded +
                 '}';
     }
+
+    public String getInfoToCSV() {
+        return super.getInfoToCSV() + "," + freeServiceIncluded;
+    }
 }

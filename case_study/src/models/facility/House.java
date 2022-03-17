@@ -2,7 +2,7 @@ package models.facility;
 
 import enums.RentalType;
 
-public class House extends Facility{
+public class House extends Facility {
     private String standardOfRoom;
     private int numberOfFloor;
 
@@ -11,7 +11,6 @@ public class House extends Facility{
         this.standardOfRoom = standardOfRoom;
         this.numberOfFloor = numberOfFloor;
     }
-
 
     public House() {
 
@@ -35,9 +34,13 @@ public class House extends Facility{
 
     @Override
     public String toString() {
-        return "House{" + super.toString()+
+        return "House{" + super.toString() +
                 ", standardOfRoom: " + standardOfRoom +
                 ", numberOfFloor: " + numberOfFloor +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return super.getInfoToCSV() + "," + standardOfRoom + "," + numberOfFloor;
     }
 }

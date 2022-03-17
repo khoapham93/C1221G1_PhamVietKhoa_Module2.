@@ -1,9 +1,9 @@
 package enums;
 
 public enum CustomerType {
-    DIAMOND,
-    PLATINUM,
-    GOLD,
-    SILVER,
-    MEMBER
+    Diamond,
+    Platinum,
+    Gold,
+    Silver,
+    Member
 }

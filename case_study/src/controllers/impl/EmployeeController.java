@@ -1,18 +1,19 @@
 package controllers.impl;
 
+import controllers.IPersonController;
 import enums.AcademicLevel;
 import enums.EmployeePosition;
 import models.person.Employee;
 import services.IPersonService;
 import services.impl.EmployeeServiceImpl;
 
-public class EmployeeController extends PersonalCommonInforController {
+public class EmployeeController extends PersonalCommonInforController implements IPersonController {
     private AcademicLevel academicLevel;
     private EmployeePosition position;
     private double salary;
-
     IPersonService employeeService = new EmployeeServiceImpl();
 
+    @Override
     public void add() {
         System.out.println("Add new employee:");
         super.addNewPerson();
@@ -32,7 +33,6 @@ public class EmployeeController extends PersonalCommonInforController {
                 salary);
         employeeService.add(employee);
         System.out.println("Employee added!");
-
     }
 
     public void display() {
@@ -41,11 +41,11 @@ public class EmployeeController extends PersonalCommonInforController {
 
     public void edit() {
         this.display();
-        System.out.println("Enter index of Employee you want to edit:");
+        System.out.print("Enter index of Employee you want to edit:");
         int index = Integer.parseInt(scanner.nextLine());
         Employee editingEmployee = (Employee) employeeService.getList().get(index);
         editingEmployee = editEmployeeFromInput(editingEmployee);
-        employeeService.edit(index,editingEmployee);
+        employeeService.edit(index, editingEmployee);
         System.out.println("Edit successfully!");
     }
 
@@ -60,9 +60,10 @@ public class EmployeeController extends PersonalCommonInforController {
                 "[7]. academicLevel: " + employee.getAcademicLevel() + "\n" +
                 "[8]. position: " + employee.getPosition() + "\n" +
                 "[9]. salary: " + employee.getSalary();
+        System.out.println("Employee Information:");
+        System.out.println(menu);
         do {
-            System.out.println("Employee Information:");
-            System.out.println(menu);
+            System.out.print("Enter your choice:");
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
@@ -101,7 +102,7 @@ public class EmployeeController extends PersonalCommonInforController {
             }
             System.out.print("Do you want to continue editing(Y/N): ");
             String stopEdit = scanner.nextLine();
-            if ("Y".equals(stopEdit.toUpperCase())){
+            if ("N".equals(stopEdit.toUpperCase())) {
                 break;
             }
         } while (true);

@@ -2,7 +2,7 @@ package models.facility;
 
 import enums.RentalType;
 
-public class Villa extends Facility{
+public class Villa extends Facility {
     private String standardOfRoom;
     private double poolArea;
     private int numberOfFloor;
@@ -44,10 +44,14 @@ public class Villa extends Facility{
 
     @Override
     public String toString() {
-        return "Villa{" + super.toString()+
+        return "Villa{" + super.toString() +
                 ", standardOfRoom: " + standardOfRoom +
                 ", poolArea: " + poolArea +
                 ", numberOfFloor: " + numberOfFloor +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return super.getInfoToCSV() + "," + standardOfRoom + "," + poolArea + "," + numberOfFloor;
     }
 }

@@ -1,11 +1,12 @@
 package controllers.impl;
 
+import controllers.IPersonController;
 import enums.CustomerType;
 import models.person.Customer;
 import services.IPersonService;
 import services.impl.CustomerServiceImpl;
 
-public class CustomerController extends PersonalCommonInforController {
+public class CustomerController extends PersonalCommonInforController implements IPersonController {
     CustomerType custumerType;
     String address;
 
@@ -54,9 +55,10 @@ public class CustomerController extends PersonalCommonInforController {
                 "[6]. email: " + customer.getEmail() + "\n" +
                 "[7]. custumerType: " + customer.getCustumerType() + "\n" +
                 "[8]. address: " + customer.getAddress();
+        System.out.println("Employee Information:");
+        System.out.println(menu);
         do {
-            System.out.println("Employee Information:");
-            System.out.println(menu);
+            System.out.print("Enter you choice:");
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
@@ -92,7 +94,7 @@ public class CustomerController extends PersonalCommonInforController {
             }
             System.out.print("Do you want to continue editing(Y/N): ");
             String stopEdit = scanner.nextLine();
-            if ("Y".equals(stopEdit.toUpperCase())){
+            if ("N".equals(stopEdit.toUpperCase())){
                 break;
             }
 
