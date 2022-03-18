@@ -2,9 +2,12 @@ package controllers.impl;
 
 import controllers.IPersonController;
 import enums.CustomerType;
+import enums.Gender;
 import models.person.Customer;
 import services.IPersonService;
 import services.impl.CustomerServiceImpl;
+import utils.UserException;
+import utils.Validation;
 
 public class CustomerController extends PersonalCommonInforController implements IPersonController {
     CustomerType custumerType;
@@ -38,7 +41,7 @@ public class CustomerController extends PersonalCommonInforController implements
     public void edit() {
         this.display();
         System.out.println("Enter index of Customer you want to edit:");
-        int index = Integer.parseInt(scanner.nextLine());
+        int index = Validation.checkIntegerFrom0ToRange(scanner.nextLine(),customerService.getList().size()-1,"Invalid index, try agian: ");
         Customer customerEditing = (Customer) customerService.getList().get(index);
         customerEditing = editCustomerFromInput(customerEditing);
         customerService.edit(index,customerEditing);
@@ -58,46 +61,47 @@ public class CustomerController extends PersonalCommonInforController implements
         System.out.println("Employee Information:");
         System.out.println(menu);
         do {
-            System.out.print("Enter you choice:");
-            int choice = Integer.parseInt(scanner.nextLine());
-
-            switch (choice) {
-                case 0:
-                    customer.setId(super.getIdFromInput());
-                    break;
-                case 1:
-                    customer.setFullName(super.getFullNameFromInput());
-                    break;
-                case 2:
-                    customer.setBirthday(super.getBirthdayFromInput());
-                    break;
-                case 3:
-                    customer.setGender(super.getGenderFromIput());
-                    break;
-                case 4:
-                    customer.setIdentityCard(super.getIdCardFromInput());
-                    break;
-                case 5:
-                    customer.setPhoneNumber(super.getPhoneFromInput());
-                    break;
-                case 6:
-                    customer.setEmail(super.getEmailFromInput());
-                    break;
-                case 7:
-                    customer.setCustumerType(getCustumerTypeFromInput());
-                    break;
-                case 8:
-                    customer.setAddress(getAddressFromInput());
-                    break;
-                default:
-                    System.out.println("No choice select!");
+            try{
+                int choice = super.checkTypeChoice();
+                switch (choice) {
+                    case 0:
+                        customer.setId(super.getIdFromInput());
+                        break;
+                    case 1:
+                        customer.setFullName(super.getFullNameFromInput());
+                        break;
+                    case 2:
+                        customer.setBirthday(super.getBirthdayFromInput());
+                        break;
+                    case 3:
+                        customer.setGender(super.getGenderFromIput());
+                        break;
+                    case 4:
+                        customer.setIdentityCard(super.getIdCardFromInput());
+                        break;
+                    case 5:
+                        customer.setPhoneNumber(super.getPhoneFromInput());
+                        break;
+                    case 6:
+                        customer.setEmail(super.getEmailFromInput());
+                        break;
+                    case 7:
+                        customer.setCustumerType(getCustumerTypeFromInput());
+                        break;
+                    case 8:
+                        customer.setAddress(getAddressFromInput());
+                        break;
+                    default:
+                        System.out.println("No choice select!");
+                }
+            }catch (UserException e){
+                System.err.println(e.getMessage());
             }
             System.out.print("Do you want to continue editing(Y/N): ");
             String stopEdit = scanner.nextLine();
             if ("N".equals(stopEdit.toUpperCase())){
                 break;
             }
-
         } while (true);
 
         return customer;
@@ -110,8 +114,9 @@ public class CustomerController extends PersonalCommonInforController implements
             System.out.println(index++ + ". " + customerType);
         }
         System.out.print("Enter your choice: ");
-        String choice = scanner.nextLine();
-        int customerTypeIndex = Integer.parseInt(choice);
+        int customerTypeIndex = Validation.checkIntegerFrom0ToRange(scanner.nextLine(),
+                CustomerType.values().length-1,"Invalid index, please try again");
+
         return CustomerType.values()[customerTypeIndex];
     }
 

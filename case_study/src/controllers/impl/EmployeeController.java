@@ -6,6 +6,8 @@ import enums.EmployeePosition;
 import models.person.Employee;
 import services.IPersonService;
 import services.impl.EmployeeServiceImpl;
+import utils.UserException;
+import utils.Validation;
 
 public class EmployeeController extends PersonalCommonInforController implements IPersonController {
     private AcademicLevel academicLevel;
@@ -42,7 +44,8 @@ public class EmployeeController extends PersonalCommonInforController implements
     public void edit() {
         this.display();
         System.out.print("Enter index of Employee you want to edit:");
-        int index = Integer.parseInt(scanner.nextLine());
+        int index = Validation.checkIntegerFrom0ToRange(scanner.nextLine(), employeeService.getList().size() -1,
+                                                 "Invalid index, try again: ");
         Employee editingEmployee = (Employee) employeeService.getList().get(index);
         editingEmployee = editEmployeeFromInput(editingEmployee);
         employeeService.edit(index, editingEmployee);
@@ -63,43 +66,46 @@ public class EmployeeController extends PersonalCommonInforController implements
         System.out.println("Employee Information:");
         System.out.println(menu);
         do {
-            System.out.print("Enter your choice:");
-            int choice = Integer.parseInt(scanner.nextLine());
-
-            switch (choice) {
-                case 0:
-                    employee.setId(super.getIdFromInput());
-                    break;
-                case 1:
-                    employee.setFullName(super.getFullNameFromInput());
-                    break;
-                case 2:
-                    employee.setBirthday(super.getBirthdayFromInput());
-                    break;
-                case 3:
-                    employee.setGender(super.getGenderFromIput());
-                    break;
-                case 4:
-                    employee.setIdentityCard(super.getIdCardFromInput());
-                    break;
-                case 5:
-                    employee.setPhoneNumber(super.getPhoneFromInput());
-                    break;
-                case 6:
-                    employee.setEmail(super.getEmailFromInput());
-                    break;
-                case 7:
-                    employee.setAcademicLevel(getAcademicLevelFromInput());
-                    break;
-                case 8:
-                    employee.setPosition(getPositionFromInput());
-                    break;
-                case 9:
-                    employee.setSalary(getSalaryFromInput());
-                    break;
-                default:
-                    System.out.println("No choice select!");
+            try {
+                int choice = super.checkTypeChoice();
+                switch (choice) {
+                    case 0:
+                        employee.setId(super.getIdFromInput());
+                        break;
+                    case 1:
+                        employee.setFullName(super.getFullNameFromInput());
+                        break;
+                    case 2:
+                        employee.setBirthday(super.getBirthdayFromInput());
+                        break;
+                    case 3:
+                        employee.setGender(super.getGenderFromIput());
+                        break;
+                    case 4:
+                        employee.setIdentityCard(super.getIdCardFromInput());
+                        break;
+                    case 5:
+                        employee.setPhoneNumber(super.getPhoneFromInput());
+                        break;
+                    case 6:
+                        employee.setEmail(super.getEmailFromInput());
+                        break;
+                    case 7:
+                        employee.setAcademicLevel(getAcademicLevelFromInput());
+                        break;
+                    case 8:
+                        employee.setPosition(getPositionFromInput());
+                        break;
+                    case 9:
+                        employee.setSalary(getSalaryFromInput());
+                        break;
+                    default:
+                        System.out.println("No choice select!");
+                }
+            } catch (UserException e) {
+                System.err.println(e.getMessage());
             }
+
             System.out.print("Do you want to continue editing(Y/N): ");
             String stopEdit = scanner.nextLine();
             if ("N".equals(stopEdit.toUpperCase())) {
@@ -116,8 +122,9 @@ public class EmployeeController extends PersonalCommonInforController implements
             System.out.println(index++ + ". " + academicLevel);
         }
         System.out.print("Enter your choice: ");
-        String choice = scanner.nextLine();
-        int academicLevelIndex = Integer.parseInt(choice);
+        int academicLevelIndex = Validation.checkIntegerFrom0ToRange(scanner.nextLine(),
+                AcademicLevel.values().length - 1, "Invalid index, try agian: ");
+
         return AcademicLevel.values()[academicLevelIndex];
     }
 
@@ -128,14 +135,14 @@ public class EmployeeController extends PersonalCommonInforController implements
             System.out.println(index++ + ". " + employeePosition);
         }
         System.out.print("Enter your choice: ");
-        String choice = scanner.nextLine();
-        int positionIndex = Integer.parseInt(choice);
+        int positionIndex = Validation.checkIntegerFrom0ToRange(scanner.nextLine(),
+                EmployeePosition.values().length - 1, "Invalid index, try agian: ");
         return EmployeePosition.values()[positionIndex];
     }
 
     private double getSalaryFromInput() {
         System.out.print("Salary: ");
-        double salary = Double.parseDouble(scanner.nextLine());
-        return salary;
+        String salary = Validation.checkPositiveDouble(scanner.nextLine(), "Invalid salary, try again: ");
+        return Double.parseDouble(salary);
     }
 }

@@ -17,6 +17,9 @@ public class Validation {
     private static final String POSITIVE_INTEGER_FROM_1_TO_19_REGEX = "^[+]?([1-9]|1[0-9])$";
     private static final String POSITIVE_DOUBLE_REGEX = "^[+]?(\\d*\\.)?\\d+$";
     private static final String EMAIL_REGEX = "^\\w+([\\.-]?\\w+)*@[a-z]+\\.(\\w+)(\\.\\w{2,3})?";
+    private static final String PHONE_REGEX = "^0[1-9]\\d{8}$";
+    private static final String IDCARD_REGEX = "^[1-9]\\d{8,11}$";
+    private static final String ALL_STRING_NUMBER_REGEX = "^\\w+( \\w+)*$";
 
     //Tên Tiếng Việt có dấu \p{L}: Tất cả Các ký tự Unicode.
     //                     \p{Ll}: Các ký tự Unicode lowercase .
@@ -38,6 +41,18 @@ public class Validation {
 
     public static String checkFacilityName(String regex, String message) {
         return regexStringFromPattern(FACILITY_NAME_REGEX, regex, message);
+    }
+
+    public static String checkAllStringAndNumber(String regex, String message) {
+        return regexStringFromPattern(ALL_STRING_NUMBER_REGEX, regex, message);
+    }
+
+    public static String checkIdCard(String regex, String message) {
+        return regexStringFromPattern(IDCARD_REGEX, regex, message);
+    }
+
+    public static String checkPhone(String regex, String message) {
+        return regexStringFromPattern(PHONE_REGEX, regex, message);
     }
 
     public static String checkDayMothYearString(String regex, String message) {
@@ -63,9 +78,11 @@ public class Validation {
     public static String checkPositiveInteger(String regex, String message) {
         return regexStringFromPattern(POSITIVE_INTEGER_REGEX, regex, message);
     }
+
     public static String checkIntegerGreaterThan0(String regex, String message) {
         return regexStringFromPattern(INTEGER_GREATER_THAN_0_REGEX, regex, message);
     }
+
     public static String checkPositiveFrom1To19Integer(String regex, String message) {
         return regexStringFromPattern(POSITIVE_INTEGER_FROM_1_TO_19_REGEX, regex, message);
     }
@@ -78,9 +95,9 @@ public class Validation {
         String temp = checkPositiveDouble(regex, message);
         double checkGreaterThan30 = Double.parseDouble(temp);
         while (true) {
-            if (checkGreaterThan30 >30.0){
+            if (checkGreaterThan30 > 30.0) {
                 break;
-            }else {
+            } else {
                 System.out.print("Number must be greater than 30, try again: ");
                 regex = scannerValidate.nextLine();
                 temp = checkPositiveDouble(regex, message);
@@ -90,7 +107,27 @@ public class Validation {
         return checkGreaterThan30;
     }
 
+    public static int checkIntegerFrom0ToRange(String regex, int range, String message) {
+        String temp = checkPositiveInteger(regex, message);
+        int checkFrom0ToRange = Integer.parseInt(temp);
+        while (true) {
+            if (checkFrom0ToRange <= range) {
+                break;
+            } else {
+                System.out.print("Number must be less than length, try again: ");
+                regex = scannerValidate.nextLine();
+                temp = checkPositiveInteger(regex, message);
+                checkFrom0ToRange = Integer.parseInt(temp);
+            }
+        }
+        return checkFrom0ToRange;
+    }
+
     public static String checkVietnameseName(String regex, String message) {
         return regexStringFromPattern(VIETNAMESE_NAME_REGEX, regex, message);
+    }
+
+    public static String checkEmail(String regex, String message) {
+        return regexStringFromPattern(EMAIL_REGEX, regex, message);
     }
 }
