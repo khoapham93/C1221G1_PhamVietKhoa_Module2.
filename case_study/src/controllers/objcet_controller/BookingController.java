@@ -62,6 +62,10 @@ public class BookingController {
         return bookingService.sendBooking();
     }
 
+    public Set<Booking> getBookingInCurrentMonth() {
+        return bookingService.getBookingInCurrentMonth();
+    }
+
     public void setBookingAfterContractSigned() {
         bookingService.updateBookingSigned();
     }

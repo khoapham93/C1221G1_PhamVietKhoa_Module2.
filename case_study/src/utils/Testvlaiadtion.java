@@ -1,5 +1,7 @@
 package utils;
 
+import models.person.Person;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,18 +14,24 @@ public class Testvlaiadtion {
     private static final String POSITIVE_DOUBLE_REGEX = "^[+]?(\\d*\\.)?\\d+$";
 
     public static void main(String[] args) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String current1 = "22/02/2022";
-        System.out.println(LocalDate.parse(current1,formatter));
-        LocalDate current = LocalDate.now();
-        LocalDate Pass100 = current.minusYears(100);
-        LocalDate Pass18 = current.minusYears(18);
-        System.out.print("Enter date Time (dd/mm/yyyy) ");
-        LocalDate date = Validation.checkDateTimeFromInput(current);
-        System.out.println(date.format(formatter));
-        System.out.print("Enter date Time (dd/mm/yyyy) greater than 18 y less than 100 ");
-        LocalDate date2 = Validation.checkDateTimeFromInput(Pass100,Pass18);
-        System.out.println(date2.format(formatter));
+
+        int[] arr = new int[10];
+        System.out.println(arr[5]);
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        String current1 = "22/02/2021";
+//        LocalDate a = LocalDate.parse(current1,formatter);
+//
+//
+//        System.out.println(a.getMonthValue());
+
+//        LocalDate Pass100 = current.minusYears(100);
+//        LocalDate Pass18 = current.minusYears(18);
+//        System.out.print("Enter date Time (dd/mm/yyyy) ");
+//        LocalDate date = Validation.checkDateTimeFromInput(current);
+//        System.out.println(date.format(formatter));
+//        System.out.print("Enter date Time (dd/mm/yyyy) greater than 18 y less than 100 ");
+//        LocalDate date2 = Validation.checkDateTimeFromInput(Pass100,Pass18);
+//        System.out.println(date2.format(formatter));
 
         //System.out.println(Boolean.valueOf(temp));
 //        System.out.print("Floor area: ");

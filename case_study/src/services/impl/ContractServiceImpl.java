@@ -31,4 +31,5 @@ public class ContractServiceImpl implements IContractService {
     public List<Contract> getList() {
         return contractList;
     }
+
 }

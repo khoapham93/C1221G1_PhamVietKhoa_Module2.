@@ -18,6 +18,7 @@ public class FuramaController {
     static IFacilityBookedService facilityMaintainService = new FacilityBookedServiceImpl();
     static BookingController bookingController = new BookingController();
     static ContractController contractController = new ContractController();
+    static PromotionController promotionController = new PromotionController();
 
     public void displayMainMenu() {
         int choice = -1;
@@ -77,10 +78,10 @@ public class FuramaController {
                 System.out.println();
                 switch (choice) {
                     case 1:
-
+                        promotionController.displayCustomerBookingInYear();
                         break;
                     case 2:
-
+                        promotionController.giveVoucher();
                         break;
                     case 3:
                         choice = 0;
