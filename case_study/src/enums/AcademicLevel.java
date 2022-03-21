@@ -1,8 +1,8 @@
 package enums;
 
 public enum AcademicLevel {
-    Intermediates,
-    Associates,
-    Graduates,
-    Postgraduates
+    INTERMEDIATES,
+    ASSOCIATES,
+    GRADUATES,
+    POSTGRADUATES
 }

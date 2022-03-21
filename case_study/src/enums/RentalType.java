@@ -1,8 +1,8 @@
 package enums;
 
 public enum RentalType {
-    Year,
-    Month,
-    Day,
-    Hour,
+    YEAR,
+    MONTH,
+    DAY,
+    HOUR,
 }

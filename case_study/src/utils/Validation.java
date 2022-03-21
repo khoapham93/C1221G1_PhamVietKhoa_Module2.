@@ -1,5 +1,9 @@
 package utils;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -129,5 +133,33 @@ public class Validation {
 
     public static String checkEmail(String regex, String message) {
         return regexStringFromPattern(EMAIL_REGEX, regex, message);
+    }
+
+    public static LocalDate checkDateTimeFromInput(String field, LocalDate sinceDate, LocalDate... toDate) {
+        LocalDate date;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.printf("Enter %s (dd/mm/yyy): ", field);
+        do {
+            try {
+                date = LocalDate.parse(scannerValidate.nextLine(), formatter);
+                if (toDate.length > 0) {
+                    if (date.compareTo(sinceDate) < 0 || date.compareTo(toDate[0]) > 0) {
+                        System.out.print(field + " must be greater than " + sinceDate.format(formatter) +
+                                " and less than " + toDate[0].format(formatter) + "try again: ");
+                    } else {
+                        break;
+                    }
+                } else {
+                    if (date.compareTo(sinceDate) < 0) {
+                        System.out.print(field + " must be greater than " + sinceDate.format(formatter) + ", try again: ");
+                    } else {
+                        break;
+                    }
+                }
+            } catch (DateTimeParseException e) {
+                System.out.print("Date Time Invalid, please try again: ");
+            }
+        } while (true);
+        return date;
     }
 }

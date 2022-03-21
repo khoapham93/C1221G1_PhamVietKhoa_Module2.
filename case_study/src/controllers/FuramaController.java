@@ -1,23 +1,23 @@
 package controllers;
 
-import controllers.impl.*;
-import services.IFacilityMaintainService;
-import services.IFacilityService;
-import services.impl.FacilityMaintainServiceImpl;
+import controllers.objcet_controller.*;
+import services.IFacilityBookedService;
+import services.impl.FacilityBookedServiceImpl;
 import utils.UserException;
-import utils.Validation;
 
 import java.util.Scanner;
 
 public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
 
-    static IPersonController employeeController = new EmployeeController();
-    static IPersonController customerController = new CustomerController();
-    static IFacilityController houseController = new HouseController();
-    static IFacilityController villaController = new VillaController();
-    static IFacilityController roomController = new RoomController();
-    static IFacilityMaintainService facilityMaintainService = new FacilityMaintainServiceImpl();
+    static EmployeeController employeeController = new EmployeeController();
+    static CustomerController customerController = new CustomerController();
+    static HouseController houseController = new HouseController();
+    static VillaController villaController = new VillaController();
+    static RoomController roomController = new RoomController();
+    static IFacilityBookedService facilityMaintainService = new FacilityBookedServiceImpl();
+    static BookingController bookingController = new BookingController();
+    static ContractController contractController = new ContractController();
 
     public void displayMainMenu() {
         int choice = -1;
@@ -110,19 +110,19 @@ public class FuramaController {
                 System.out.println();
                 switch (choice) {
                     case 1:
-
+                        bookingController.add();
                         break;
                     case 2:
-
+                        bookingController.display();
                         break;
                     case 3:
-
+                        contractController.add();
                         break;
                     case 4:
-
+                        contractController.display();
                         break;
                     case 5:
-
+                        contractController.edit();
                         break;
                     case 6:
                         choice = 0;
@@ -158,7 +158,7 @@ public class FuramaController {
                         addnewFacilityMenu();
                         break;
                     case 3:
-                        facilityMaintainService.display();
+                        facilityMaintainService.displayFacilityMaintain();
                         break;
                     case 4:
                         choice = 0;

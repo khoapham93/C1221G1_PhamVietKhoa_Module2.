@@ -10,7 +10,6 @@ public abstract class Facility {
     private int maximumPeople;
     private RentalType rentalType;
 
-
     public Facility(String id, String Name, double usableFloorArea, double rentalCost, int maximumPeople, RentalType rentalType) {
         this.id = id;
         this.name = Name;
@@ -76,8 +75,8 @@ public abstract class Facility {
     public String toString() {
         return "id: " + id +
                 ", name: " + name +
-                ", usableFloorArea: " + usableFloorArea +
-                ", rentalCost: " + rentalCost +
+                ", usableFloorArea: " + String.format("%.2f", usableFloorArea) +
+                ", rentalCost: " + String.format("%.2f", rentalCost) +
                 ", maximumPeople: " + maximumPeople +
                 ", rentalType: " + rentalType;
     }

@@ -2,16 +2,21 @@ package models.person;
 
 import enums.Gender;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public abstract class Person {
     private String id;
     private String fullName;
-    private String birthday;
+    private LocalDate birthday;
     private Gender gender;
     private String identityCard;
     private String phoneNumber;
     private String email;
 
-    public Person(String id, String fullName, String birthday, Gender gender, String identityCard, String phoneNumber, String email) {
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    public Person(String id, String fullName, LocalDate birthday, Gender gender, String identityCard, String phoneNumber, String email) {
         this.id = id;
         this.fullName = fullName;
         this.birthday = birthday;
@@ -41,11 +46,11 @@ public abstract class Person {
         this.fullName = fullName;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -85,7 +90,7 @@ public abstract class Person {
     public String toString() {
         return "id: " + id +
                 ", fullName: " + fullName +
-                ", birthday: " + birthday +
+                ", birthday: " + birthday.format(formatter) +
                 ", gender: " + gender +
                 ", identityCard: " + identityCard +
                 ", phoneNumber: " + phoneNumber +
@@ -93,6 +98,6 @@ public abstract class Person {
     }
 
     public String getInfoToCSV() {
-        return id + "," + fullName + "," + birthday + "," + gender + "," + identityCard + "," + phoneNumber + "," + email;
+        return id + "," + fullName + "," + birthday.format(formatter) + "," + gender + "," + identityCard + "," + phoneNumber + "," + email;
     }
 }
