@@ -6,7 +6,6 @@ import services.IFacilityBookedService;
 import utils.BookingComparator;
 import utils.ReadAndWriteFile;
 
-import java.time.LocalDate;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -61,25 +60,4 @@ public class BookingServiceImpl implements IBookingService {
         return bookingSet;
     }
 
-    @Override
-    public Set<Booking> getBookingInCurrentMonth() {
-        Set<Booking> bookingInCurrentMonth = new TreeSet<>(new BookingComparator());
-        int currentYear = LocalDate.now().getYear();
-        int currentMonth = LocalDate.now().getMonthValue();
-
-        for (Booking booking : bookingSet) {
-            boolean isStartDateInCurrentYear = booking.getStartDate().getYear() == currentYear;
-            boolean isEndDateInCurrentYear = booking.getStartDate().getYear() == currentYear;
-
-            if (isStartDateInCurrentYear || isEndDateInCurrentYear) {
-                boolean isStartDateInCurrentMonth = booking.getStartDate().getMonthValue() == currentMonth;
-                boolean isEndDateInCurrentMonth = booking.getStartDate().getMonthValue() == currentMonth;
-
-                if (isStartDateInCurrentMonth || isEndDateInCurrentMonth) {
-                    bookingInCurrentMonth.add(booking);
-                }
-            }
-        }
-        return bookingInCurrentMonth;
-    }
 }

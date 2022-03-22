@@ -17,6 +17,7 @@ public class Testvlaiadtion {
 
         int[] arr = new int[10];
         System.out.println(arr[5]);
+
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 //        String current1 = "22/02/2021";
 //        LocalDate a = LocalDate.parse(current1,formatter);

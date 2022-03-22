@@ -36,22 +36,22 @@ public class PromotionServiceImpl implements IPromotionService {
     public void giveVoucher(int tenPercentOff, int twentyPercentOff, int fiftyPercentOff, Set<Booking> bookingInCurrentMonth) {
         Stack<Booking> bookingStack = new Stack<>();
         bookingStack.addAll(bookingInCurrentMonth);
-
-        System.out.println("Customer will receive voucher discount 10%: ");
+        System.out.println();
+        System.out.println("------Customer will receive voucher discount 10%-------");
         while (tenPercentOff > 0 && !bookingStack.isEmpty()) {
             Booking booking = bookingStack.pop();
             System.out.println(getCustomerByid(booking.getCustomerId()));
             tenPercentOff--;
         }
-
-        System.out.println("Customer will receive voucher discount 20%: ");
+        System.out.println();
+        System.out.println("------Customer will receive voucher discount 20%------");
         while (twentyPercentOff > 0 && !bookingStack.isEmpty()) {
             Booking booking = bookingStack.pop();
             System.out.println(getCustomerByid(booking.getCustomerId()));
             twentyPercentOff--;
         }
-
-        System.out.println("Customer will receive voucher discount 50%: ");
+        System.out.println();
+        System.out.println("-------Customer will receive voucher discount 50%-------");
         while (fiftyPercentOff > 0 && !bookingStack.isEmpty()) {
             Booking booking = bookingStack.pop();
             System.out.println(getCustomerByid(booking.getCustomerId()));

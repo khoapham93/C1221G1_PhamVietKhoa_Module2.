@@ -6,7 +6,6 @@ import services.IPromotionService;
 import services.impl.PromotionServiceImpl;
 import utils.Validation;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -41,9 +40,10 @@ public class PromotionController {
             twentyPercentOff = Integer.parseInt(getVoucherFromInput("20%"));
             fiftyPercentOff = Integer.parseInt(getVoucherFromInput("50%"));
             if (totalVoucher == (tenPercentOff + twentyPercentOff + fiftyPercentOff)) {
+                System.out.println("Vouchers added successful!");
                 break;
             } else {
-                System.out.println("Total of voucer must be equal of booking amount in month");
+                System.out.println("Total of voucher must be equal of booking amount in month");
             }
         } while (true);
         promotionService.giveVoucher(tenPercentOff, twentyPercentOff, fiftyPercentOff, bookingInCurrentMonth);

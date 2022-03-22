@@ -9,7 +9,5 @@ public interface IBookingService extends IService<Booking> {
 
     Set<Booking> sendBooking();
 
-    Set<Booking> getBookingInCurrentMonth();
-
     void updateBookingSigned();
 }
