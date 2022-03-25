@@ -42,9 +42,10 @@ public class BookingServiceImpl implements IBookingService {
         //send booking not create contract yet.
     }
 
-    //update booking status (after create contract, set booking status to true)
-    // save to file
-
+    /**
+     * update booking status (after create contract, set booking status to true)
+     *  save to file
+     */
     @Override
     public void updateBookingSigned() {
         for (Booking booking : bookingSet) {

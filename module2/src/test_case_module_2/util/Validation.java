@@ -1,6 +1,5 @@
-package utils;
+package test_case_module_2.util;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -14,7 +13,7 @@ public class Validation {
     private static final String VILLA_ID_REGEX = "^SVVL-\\d{4}$";
     private static final String HOUSE_ID_REGEX = "^SVHO-\\d{4}$";
     private static final String ROOM_ID_REGEX = "^SVRO-\\d{4}$";
-    private static final String FACILITY_NAME_REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*( [0-9]+)*$";
+    private static final String COMMON_NAME_REGEX = "^\\p{Lu}(\\p{L}+|[0-9]+)*( \\p{Lu}(\\p{L}+|[0-9]+))*( [0-9]+)*$";
     private static final String YEAR_REGEX = "^[+]?\\d{4}$";
     private static final String DDMMYYYY_REGEX = "^(0?[1-9]|[12][0-9]|3[01])\\/(0?[1-9]|1[0-2])\\/\\d\\d\\d\\d$";
     private static final String POSITIVE_INTEGER_REGEX = "^[+]?\\d+$";
@@ -23,13 +22,19 @@ public class Validation {
     private static final String POSITIVE_DOUBLE_REGEX = "^[+]?(\\d*\\.)?\\d+$";
     private static final String EMAIL_REGEX = "^\\w+([\\.-]?\\w+)*@[a-z]+\\.(\\w+)(\\.\\w{2,3})?";
     private static final String PHONE_REGEX = "^0[1-9]\\d{8}$";
+    private static final String CARD_NUMBER_REGEX = "^\\d{10,13}$";
     private static final String IDCARD_REGEX = "^[1-9]\\d{8,11}$";
     private static final String ALL_STRING_NUMBER_REGEX = "^\\w+( \\w+)*$";
 
     //Tên Tiếng Việt có dấu \p{L}: Tất cả Các ký tự Unicode.
     //                     \p{Ll}: Các ký tự Unicode lowercase .
     //                     \p{Lu}: Các ký tự Unicode Uppercase .
+    //                         ? : không hoặc 1
+    //                         * : không hoặc nhiều
+    //                         + : Một hoặc nhiều
     private static final String VIETNAMESE_NAME_REGEX = "^\\p{Lu}\\p{Ll}+( \\p{Lu}\\p{Ll}+)*$";
+
+    boolean check = "aaa".matches(VIETNAMESE_NAME_REGEX);
 
     private static String regexStringFromPattern(String pattern, String inputString, String message) {
         do {
@@ -44,8 +49,8 @@ public class Validation {
         return inputString;
     }
 
-    public static String checkFacilityName(String regex, String message) {
-        return regexStringFromPattern(FACILITY_NAME_REGEX, regex, message);
+    public static String checkCommonName(String regex, String message) {
+        return regexStringFromPattern(COMMON_NAME_REGEX, regex, message);
     }
 
     public static String checkAllStringAndNumber(String regex, String message) {
@@ -58,6 +63,10 @@ public class Validation {
 
     public static String checkPhone(String regex, String message) {
         return regexStringFromPattern(PHONE_REGEX, regex, message);
+    }
+
+    public static String checkCardNumber(String regex, String message) {
+        return regexStringFromPattern(CARD_NUMBER_REGEX, regex, message);
     }
 
     public static String checkDayMothYearString(String regex, String message) {
@@ -138,21 +147,21 @@ public class Validation {
 
     public static LocalDate checkDateTimeFromInput(String field, LocalDate sinceDate, LocalDate... toDate) {
         LocalDate date;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.printf("Enter %s (dd/mm/yyy): ", field);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        System.out.printf("Enter %s (dd/mm/yyyy): ", field);
         do {
             try {
-                    date = LocalDate.parse(scannerValidate.nextLine(), formatter.withResolverStyle(ResolverStyle.STRICT));
+                date = LocalDate.parse(scannerValidate.nextLine(), formatter.withResolverStyle(ResolverStyle.STRICT));
                 if (toDate.length > 0) {
                     if (date.compareTo(sinceDate) < 0 || date.compareTo(toDate[0]) > 0) {
-                        System.out.print(field + " must be greater than " + sinceDate.format(formatter) +
-                                " and less than " + toDate[0].format(formatter) + "try again: ");
+                        System.out.print(field + " must be from " + sinceDate.format(formatter) +
+                                " to " + toDate[0].format(formatter) + "try again: ");
                     } else {
                         break;
                     }
                 } else {
                     if (date.compareTo(sinceDate) < 0) {
-                        System.out.print(field + " must be greater than " + sinceDate.format(formatter) + ", try again: ");
+                        System.out.print(field + " must be from " + sinceDate.format(formatter) + ", try again: ");
                     } else {
                         break;
                     }

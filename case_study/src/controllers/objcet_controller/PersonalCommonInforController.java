@@ -82,7 +82,7 @@ public class PersonalCommonInforController {
         } else {
             int i = 0;
             for (Person person : personList) {
-                System.out.printf("[%d] - %s\n", i++, person);
+                System.out.printf("[%d] - %20s\n", i++, person);
             }
         }
     }

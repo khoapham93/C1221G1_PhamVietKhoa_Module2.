@@ -71,7 +71,7 @@ public class FuramaController {
             System.out.println();
             System.out.println("Promotion Management\n" +
                     "1. Display list customers use service\n" +
-                    "2. Display list customers get voucher\n" +
+                    "2. Create voucher for customer booking in current month\n" +
                     "3. Return main menu");
             try {
                 choice = checkTypeChoice();
